@@ -1,0 +1,4 @@
+#!/bin/bash
+export BINANCE_API_KEY=8J7Y2eMoT2lwPjvcsk59pjEdZFREWmC1Q4yUs36SB0dB7Mq2cv6y66pPKZxRM4lf
+export BINANCE_SECRET_KEY=iCNWI7eF3AZTjFioql5rgnrZIFDip29mQ2sJfUJ9uViMOcMrYftbywkycEasFePt
+/root/agi-stage0/venv/bin/python3 /root/agi-stage0/agi_trader_stage6/main.py

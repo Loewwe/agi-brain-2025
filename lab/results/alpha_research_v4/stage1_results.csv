@@ -1,0 +1,47 @@
+hyp_id,name,n_events,winrate,mean_rew,median_rew,std_rew,avg_mfe,avg_mae,p_value,pass_stage1,fail_reason
+H001,Asian Morning Pump Fade,309,0.46,0.07,0.07,1.64,1.49,1.24,0.2176,False,WR=46.0%<58%; mean_rew=0.07%<0.10%; p-value=0.218>=0.05
+H002,European Open Breakout,200,0.425,0.09,-0.03,1.99,1.61,1.55,0.264,False,WR=42.5%<58%; mean_rew=0.09%<0.10%; p-value=0.264>=0.05
+H003,US Pre-market Dip Buy,187,0.406,-0.18,-0.4,3.07,2.02,2.37,1.0,False,WR=40.6%<58%; mean_rew=-0.18%<0.10%; p-value=1.000>=0.05
+H004,Friday Profit Taking,25,0.4,-0.5,-0.72,6.93,3.44,3.76,1.0,False,events=25<40; WR=40.0%<58%; mean_rew=-0.50%<0.10%; p-value=1.000>=0.05
+H005,Monday Gap Recovery,23,0.435,-2.27,-1.59,4.37,1.46,4.36,1.0,False,events=23<40; WR=43.5%<58%; mean_rew=-2.27%<0.10%; p-value=1.000>=0.05
+H009,RSI Bullish Divergence,7230,0.404,-0.06,0.02,2.09,0.93,1.24,1.0,False,WR=40.4%<58%; mean_rew=-0.06%<0.10%; p-value=1.000>=0.05
+H041,Opening Range Breakout,10827,0.344,-0.01,-0.02,1.26,0.66,0.66,1.0,False,WR=34.4%<58%; mean_rew=-0.01%<0.10%; p-value=1.000>=0.05
+H044,London Open Fade,230,0.43,0.03,0.0,1.46,1.03,1.16,0.3865,False,WR=43.0%<58%; mean_rew=0.03%<0.10%; p-value=0.386>=0.05
+H048,Weekend Gap Close,41,0.634,0.55,0.51,1.33,1.39,1.01,0.006,True,
+H051,BTC Dominance Mean Rev,170,0.459,-0.11,0.04,1.78,1.1,1.45,1.0,False,WR=45.9%<58%; mean_rew=-0.11%<0.10%; p-value=1.000>=0.05
+H061,RSI(5) Extreme Reversal,5049,0.372,-0.04,0.0,1.24,0.72,0.81,1.0,False,WR=37.2%<58%; mean_rew=-0.04%<0.10%; p-value=1.000>=0.05
+H062,BB Squeeze Breakout,1240,0.394,-0.13,-0.09,1.77,1.26,1.32,1.0,False,WR=39.4%<58%; mean_rew=-0.13%<0.10%; p-value=1.000>=0.05
+H071,Round Number Magnet,3641,0.328,0.01,0.01,0.87,0.53,0.57,0.3636,False,WR=32.8%<58%; mean_rew=0.01%<0.10%; p-value=0.364>=0.05
+H075,Weekend Boredom Pump,44,0.523,0.39,0.37,4.1,3.66,2.67,0.2657,False,WR=52.3%<58%; p-value=0.266>=0.05
+H092,DXY Inverse Spike,0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,False,No events triggered
+H006,Weekend Low Volatility,537,0.397,-0.06,0.0,1.25,0.9,0.96,1.0,False,WR=39.7%<58%; mean_rew=-0.06%<0.10%; p-value=1.000>=0.05
+H021,Engulfing Candle,7462,0.421,0.02,0.0,1.89,1.31,1.28,0.1525,False,WR=42.1%<58%; mean_rew=0.02%<0.10%; p-value=0.153>=0.05
+H023,Inside Bar Breakout,4196,0.411,0.05,-0.01,2.01,1.33,1.27,0.0655,False,WR=41.1%<58%; mean_rew=0.05%<0.10%; p-value=0.065>=0.05
+H042,Power Hour Reversal,232,0.487,0.22,0.14,1.09,0.88,0.49,0.0011,False,WR=48.7%<58%
+H045,NY Lunch Lull,399,0.376,-0.09,-0.09,1.25,1.01,1.1,1.0,False,WR=37.6%<58%; mean_rew=-0.09%<0.10%; p-value=1.000>=0.05
+H052,Altcoin/BTC Pair Lag,64,0.344,-0.34,-0.38,1.34,0.87,1.48,1.0,False,WR=34.4%<58%; mean_rew=-0.34%<0.10%; p-value=1.000>=0.05
+H053,Perp vs Spot Premium,0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,False,No events triggered
+H063,Wick Hunting,4560,0.342,-0.03,-0.02,0.95,0.62,0.64,1.0,False,WR=34.2%<58%; mean_rew=-0.03%<0.10%; p-value=1.000>=0.05
+H073,FOMO Pump Exhaustion,52,0.404,-1.25,-1.47,4.3,3.78,5.32,1.0,False,WR=40.4%<58%; mean_rew=-1.25%<0.10%; p-value=1.000>=0.05
+H074,Dump Panic Capitulation,19,0.474,0.38,-1.52,17.72,11.48,27.01,0.4638,False,events=19<40; WR=47.4%<58%; p-value=0.464>=0.05
+H007,Quarterly Expiry Pin,73,0.603,0.21,0.3,0.98,0.36,0.35,0.0334,True,
+H008,Night Asia Fade,88,0.5,0.21,0.11,0.92,0.66,0.55,0.0201,False,WR=50.0%<58%
+H010,RSI Bearish Divergence,76,0.474,0.1,-0.06,1.02,0.41,0.56,0.2055,False,WR=47.4%<58%; mean_rew=0.10%<0.10%; p-value=0.206>=0.05
+H011,Breakout Retest,47,0.404,-0.16,-0.22,0.97,0.46,0.58,1.0,False,WR=40.4%<58%; mean_rew=-0.16%<0.10%; p-value=1.000>=0.05
+H012,BB Squeeze,87,0.494,0.08,0.08,1.18,0.5,0.4,0.2569,False,WR=49.4%<58%; mean_rew=0.08%<0.10%; p-value=0.257>=0.05
+H013,Range Breakout Volume,87,0.552,0.19,0.31,1.07,0.57,0.36,0.0498,False,WR=55.2%<58%
+H014,EMA Bounce,67,0.597,0.17,0.28,0.9,0.58,0.28,0.0689,False,p-value=0.069>=0.05
+H015,V-Reversal,80,0.425,-0.04,-0.09,1.02,0.46,0.61,1.0,False,WR=42.5%<58%; mean_rew=-0.04%<0.10%; p-value=1.000>=0.05
+H016,False Breakout Fade,87,0.402,-0.04,-0.04,0.95,0.67,0.22,1.0,False,WR=40.2%<58%; mean_rew=-0.04%<0.10%; p-value=1.000>=0.05
+H017,Volume Spike Dip,76,0.513,0.24,0.34,1.04,0.45,0.58,0.0226,False,WR=51.3%<58%
+H018,EOD Volume Surge,82,0.354,-0.14,-0.09,0.95,0.46,0.45,1.0,False,WR=35.4%<58%; mean_rew=-0.14%<0.10%; p-value=1.000>=0.05
+H019,Declining Volume Rally,57,0.491,0.12,0.07,0.92,0.51,0.58,0.1735,False,WR=49.1%<58%; p-value=0.174>=0.05
+H020,Volume No Price,66,0.545,0.12,0.23,0.85,0.63,0.51,0.1378,False,WR=54.5%<58%; p-value=0.138>=0.05
+H022,Volume Climax,83,0.53,0.16,0.22,1.15,0.5,0.42,0.1061,False,WR=53.0%<58%; p-value=0.106>=0.05
+H024,BTC Dom Rise,75,0.387,-0.03,-0.09,0.96,0.31,0.6,1.0,False,WR=38.7%<58%; mean_rew=-0.03%<0.10%; p-value=1.000>=0.05
+H025,BTC Pump Alt Lag,60,0.567,0.2,0.3,0.97,0.32,0.66,0.0618,False,WR=56.7%<58%; p-value=0.062>=0.05
+H026,Extreme Fear,87,0.448,0.07,-0.1,1.11,0.4,0.6,0.2675,False,WR=44.8%<58%; mean_rew=0.07%<0.10%; p-value=0.267>=0.05
+H027,Extreme Greed,46,0.5,0.09,0.09,1.09,0.52,0.39,0.3008,False,WR=50.0%<58%; mean_rew=0.09%<0.10%; p-value=0.301>=0.05
+H028,DXY Spike,74,0.514,0.23,0.13,0.9,0.42,0.54,0.0161,False,WR=51.4%<58%
+H029,SPX Gap,70,0.471,-0.0,0.08,0.98,0.38,0.48,1.0,False,WR=47.1%<58%; mean_rew=-0.00%<0.10%; p-value=1.000>=0.05
+H030,Options Expiry Pin,72,0.458,0.06,0.02,1.08,0.56,0.6,0.3209,False,WR=45.8%<58%; mean_rew=0.06%<0.10%; p-value=0.321>=0.05

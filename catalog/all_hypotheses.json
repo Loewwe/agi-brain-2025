@@ -1,0 +1,884 @@
+[
+  {
+    "id": "H001",
+    "name": "Asian Morning Pump Fade",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": "Fade sharp moves in early Asian session."
+  },
+  {
+    "id": "H002",
+    "name": "European Open Breakout",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H003",
+    "name": "US Pre-market Dip Buy",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H004",
+    "name": "Friday Profit Taking",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H005",
+    "name": "Monday Gap Recovery",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H006",
+    "name": "Weekend Low Volatility",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H007",
+    "name": "CME Gap Fill",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H008",
+    "name": "Funding Rate Reversion",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H009",
+    "name": "RSI Bullish Divergence",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H010",
+    "name": "RSI Bearish Divergence",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H011",
+    "name": "Bollinger Band Squeeze",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H012",
+    "name": "MACD Cross Momentum",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H013",
+    "name": "EMA Ribbon Trend",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H014",
+    "name": "Parabolic SAR Reversal",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H015",
+    "name": "Ichimoku Cloud Breakout",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H016",
+    "name": "Volume Spike Reversal",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H017",
+    "name": "OBV Divergence",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H018",
+    "name": "VWAP Mean Reversion",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H019",
+    "name": "Pivot Point Bounce",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H020",
+    "name": "Fibonacci Retracement",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H021",
+    "name": "Engulfing Candle",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H022",
+    "name": "Hammer/Shooting Star",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H023",
+    "name": "Inside Bar Breakout",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H024",
+    "name": "Three White Soldiers",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H025",
+    "name": "Double Top/Bottom",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H026",
+    "name": "Head and Shoulders",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H027",
+    "name": "Flag/Pennant Breakout",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H028",
+    "name": "DXY Inverse Correlation",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H029",
+    "name": "Gold Correlation",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H030",
+    "name": "VIX Spike Fade",
+    "group": "1. Basic / Session / Time (H001-H030)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H031",
+    "name": "Liquidity Vacuum Gap Fill",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H032",
+    "name": "Spoofing Detection & Fade",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H033",
+    "name": "Market Order Imbalance",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H034",
+    "name": "Latency Arbitrage (Cross-Ex)",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H035",
+    "name": "Funding Rate Arbitrage",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H036",
+    "name": "Whale Order Splitting",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H037",
+    "name": "Stop-Loss Hunting Pattern",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H038",
+    "name": "Order Book Imbalance Rev",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H039",
+    "name": "Tick-Level Momentum Decay",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H040",
+    "name": "Trade Size Polarity",
+    "group": "2. Block A: Microstructure & Order Flow (H031-H040)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H041",
+    "name": "Opening Range Breakout",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H042",
+    "name": "Power Hour Reversal",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H043",
+    "name": "Asian Session False Vol",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H044",
+    "name": "London Open Fade",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H045",
+    "name": "NY Lunch Lull",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H046",
+    "name": "Pre-FOMC/CPI Chaos",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H047",
+    "name": "Crypto Futures Expiry Pin",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H048",
+    "name": "Weekend Gap Close",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H049",
+    "name": "Dead Zone Reversal",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H050",
+    "name": "Binance Announce Pump",
+    "group": "3. Block B: Intraday Timing M1-M5 (H041-H050)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H051",
+    "name": "BTC Dominance Mean Rev",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H052",
+    "name": "Altcoin/BTC Pair Lag",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H053",
+    "name": "Perp vs Spot Premium",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H054",
+    "name": "Cross-Exchange Spread",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H055",
+    "name": "Fear & Greed Fade",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H056",
+    "name": "Options Max Pain",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H057",
+    "name": "Google Trends Momentum",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H058",
+    "name": "Social Sentiment Pump",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H059",
+    "name": "Whale Wallet Tracking",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H060",
+    "name": "USDT Mint/Burn Signal",
+    "group": "4. Block C: Stat Arb & Correlations (H051-H060)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H061",
+    "name": "RSI(5) Extreme Reversal",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H062",
+    "name": "BB(20,2) M1 Squeeze",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H063",
+    "name": "Wick Hunting M5",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H064",
+    "name": "Vol-Weighted MA Cross",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H065",
+    "name": "CVD Divergence",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H066",
+    "name": "OFI Spike",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H067",
+    "name": "Micro-Gap Fill",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H068",
+    "name": "Time & Sales Clustering",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H069",
+    "name": "Hidden Liquidity Sniping",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H070",
+    "name": "Tick Speed Acceleration",
+    "group": "5. Block D: Technical M1-M5 Anomalies (H061-H070)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H071",
+    "name": "Round Number Magnet",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H072",
+    "name": "Stop-Loss Graveyard",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H073",
+    "name": "FOMO Pump Exhaustion",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H074",
+    "name": "Dump Panic Capitulation",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H075",
+    "name": "Weekend Boredom Pump",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H076",
+    "name": "News Buy The Rumor",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H077",
+    "name": "Social Proof Herding",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H078",
+    "name": "Short Squeeze Detector",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H079",
+    "name": "Long Liquidation Cascade",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H080",
+    "name": "Whale vs Whale Battle",
+    "group": "6. Block E: Psychology & Behavioral (H071-H080)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H081",
+    "name": "ML Order Flow Pred",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H082",
+    "name": "Black Swan Gamma",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H083",
+    "name": "Volatility Smile Arb",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H084",
+    "name": "Futures Basis Term",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H085",
+    "name": "MVRV Z-Score Extreme",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H086",
+    "name": "NUPL Reversion",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H087",
+    "name": "HODLer Capitulation",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H088",
+    "name": "Exchange Netflow Rev",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H089",
+    "name": "Tether Printer Effect",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H090",
+    "name": "Google Search Crash",
+    "group": "7. Block F: Exotic & ML (H081-H090)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H091",
+    "name": "BTC vs SPX Hedge",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H092",
+    "name": "DXY/BTC Inverse Spike",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H093",
+    "name": "Gold/BTC Safe Haven",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H094",
+    "name": "VIX/Crypto Vol Lag",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H095",
+    "name": "US Treasury Yield",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H096",
+    "name": "Carry Trade Crypto",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H097",
+    "name": "Cross-Arb Futures",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H098",
+    "name": "Volatility Betting",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H099",
+    "name": "CME/Asia Gap Trade",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H100",
+    "name": "Whale Copy Trading",
+    "group": "8. Block G: Multi-Asset (H091-H100)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H101",
+    "name": "Latency Arb",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H102",
+    "name": "Sniping Listings",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H103",
+    "name": "Orderbook Lag",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H104",
+    "name": "Flash Loans",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H105",
+    "name": "Mempool Frontrun",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H106",
+    "name": "Shitcoin Stat Arb",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H107",
+    "name": "Grid Trading Tight",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H108",
+    "name": "Market Making",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H109",
+    "name": "Index vs Spot Arb",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H110",
+    "name": "Pump Group Detect",
+    "group": "9. Block H: HFT-Like (H101-H110)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H111",
+    "name": "January Effect",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H112",
+    "name": "Summer Doldrums",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H113",
+    "name": "Quarter-End Window",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H114",
+    "name": "Tax Season Sell",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H115",
+    "name": "CNY Effect",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H116",
+    "name": "Black Friday Sale",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H117",
+    "name": "Santa Rally",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H118",
+    "name": "ETF Seasonality",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H119",
+    "name": "Halving Cycles",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H120",
+    "name": "Monday Effect",
+    "group": "10. Block I: Seasonality (H111-H120)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H121",
+    "name": "Margin Liq Cascades",
+    "group": "11. Block J: High Risk / High Reward (H121-H126)",
+    "feasible": true,
+    "description": ""
+  },
+  {
+    "id": "H122",
+    "name": "Funding Manipulation",
+    "group": "11. Block J: High Risk / High Reward (H121-H126)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H123",
+    "name": "Wash Trading Fade",
+    "group": "11. Block J: High Risk / High Reward (H121-H126)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H124",
+    "name": "News Arb NLP",
+    "group": "11. Block J: High Risk / High Reward (H121-H126)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H125",
+    "name": "Listing Prediction",
+    "group": "11. Block J: High Risk / High Reward (H121-H126)",
+    "feasible": false,
+    "description": ""
+  },
+  {
+    "id": "H126",
+    "name": "Exit Scam Short",
+    "group": "11. Block J: High Risk / High Reward (H121-H126)",
+    "feasible": false,
+    "description": ""
+  }
+]

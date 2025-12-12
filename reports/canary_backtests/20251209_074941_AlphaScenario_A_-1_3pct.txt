@@ -1,0 +1,18 @@
+Run ID: 2025-12-09T07:49:41.759388
+Scenario: A (-1% alpha)
+Mode: backtest
+Strategy: test_safe_strategy_canary
+Symbol/TF: BTCUSDT 15m
+Initial Balance: 1000.0 USDT
+Final Balance: 986.92 USDT
+
+Alpha_pct: -1.31%
+Alpha_usd: -13.08
+Max DD: -1.31%
+Trades: 14
+
+Canary Slot: OK (1 canary slot, isolated)
+Risk per trade: 0.25%
+Auto-stop: none
+
+Result: PASS (target: -1.5% to -0.5%)

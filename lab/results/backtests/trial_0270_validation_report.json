@@ -1,0 +1,57 @@
+{
+  "strategy_id": "trial_0270",
+  "validated_at": "2025-12-11T19:10:05.289385",
+  "config": {
+    "ema_fast": 20,
+    "ema_slow": 50,
+    "rsi_period": 14,
+    "rsi_overbought": 70,
+    "rsi_oversold": 30,
+    "bb_period": 25,
+    "bb_std": 2.0
+  },
+  "windows": {
+    "base": {
+      "period_start": "2025-06-09",
+      "period_end": "2025-12-07",
+      "total_return_pct": 2.35,
+      "avg_daily_return": 0.029,
+      "median_daily_return": 0.0,
+      "max_drawdown": 16.41,
+      "max_daily_loss": -4.84,
+      "win_rate": 41.9,
+      "num_trades": 136,
+      "profit_factor": 1.02,
+      "sharpe_ratio": 0.31,
+      "max_consecutive_losses": 6,
+      "unsinkable_violations": {
+        "days_over_daily_limit": 0,
+        "dates_over_daily_limit": [],
+        "max_consecutive_violations": 0,
+        "worst_day_pct": -0.04839753094399995,
+        "was_total_dd_limit_hit": false
+      }
+    },
+    "oos": {
+      "period_start": "2025-11-06",
+      "period_end": "2025-12-08",
+      "total_return_pct": -7.42,
+      "avg_daily_return": -0.207,
+      "median_daily_return": 0.0,
+      "max_drawdown": 14.34,
+      "max_daily_loss": -4.84,
+      "win_rate": 36.1,
+      "num_trades": 36,
+      "profit_factor": 0.79,
+      "sharpe_ratio": -1.71,
+      "max_consecutive_losses": 6,
+      "unsinkable_violations": {
+        "days_over_daily_limit": 0,
+        "dates_over_daily_limit": [],
+        "max_consecutive_violations": 0,
+        "worst_day_pct": -0.048397530943999754,
+        "was_total_dd_limit_hit": false
+      }
+    }
+  }
+}

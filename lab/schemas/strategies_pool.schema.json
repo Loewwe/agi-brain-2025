@@ -1,0 +1,124 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "New Strategies Pool",
+    "description": "Output of Alpha Search v2.0 - Stage 1",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "strategy_id",
+            "pattern_type",
+            "symbols",
+            "dsl",
+            "backtest_metrics"
+        ],
+        "properties": {
+            "strategy_id": {
+                "type": "string",
+                "description": "Unique identifier for the strategy"
+            },
+            "pattern_type": {
+                "type": "string",
+                "enum": [
+                    "mean_reversion_short_pump",
+                    "momentum_breakout_long",
+                    "volatility_crush_reversal",
+                    "trend_follow_long",
+                    "trend_follow_short"
+                ]
+            },
+            "symbols": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "minItems": 1
+            },
+            "dsl": {
+                "type": "object",
+                "description": "DSL description of strategy logic",
+                "required": [
+                    "entry",
+                    "exit",
+                    "params"
+                ],
+                "properties": {
+                    "entry": {
+                        "type": "object",
+                        "properties": {
+                            "signal": {
+                                "type": "string"
+                            },
+                            "direction": {
+                                "enum": [
+                                    "long",
+                                    "short"
+                                ]
+                            }
+                        }
+                    },
+                    "exit": {
+                        "type": "object",
+                        "properties": {
+                            "tp_model": {
+                                "type": "string"
+                            },
+                            "tp_pct": {
+                                "type": "number"
+                            },
+                            "sl_model": {
+                                "type": "string"
+                            },
+                            "sl_pct": {
+                                "type": "number"
+                            },
+                            "max_hold_minutes": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "params": {
+                        "type": "object",
+                        "additionalProperties": true
+                    }
+                }
+            },
+            "backtest_metrics": {
+                "type": "object",
+                "required": [
+                    "avg_daily_return",
+                    "pf",
+                    "wr",
+                    "max_dd",
+                    "num_trades"
+                ],
+                "properties": {
+                    "avg_daily_return": {
+                        "type": "number",
+                        "minimum": 0.01
+                    },
+                    "pf": {
+                        "type": "number",
+                        "minimum": 1.3
+                    },
+                    "wr": {
+                        "type": "number",
+                        "minimum": 0.55,
+                        "maximum": 1.0
+                    },
+                    "max_dd": {
+                        "type": "number",
+                        "maximum": 0.4
+                    },
+                    "num_trades": {
+                        "type": "integer",
+                        "minimum": 50
+                    },
+                    "total_return_pct": {
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    }
+}

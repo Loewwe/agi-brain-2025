@@ -1,0 +1,21 @@
+symbol: "BTC/USDT"
+timeframe: "5m"
+
+target:
+  type: "reversal"
+  horizon_bars: 15
+  min_move_pct: 0.008  # 0.8% reversal threshold
+  extremum_window: 3
+
+feature_set: "extended"
+model_type: "lightgbm"
+
+train_period:
+  start: "2024-01-01"
+  end: "2024-03-31"
+
+test_period:
+  start: "2024-04-01"
+  end: "2024-04-30"
+
+random_state: 42

@@ -1,0 +1,74 @@
+# Owner Profile Configuration
+# Профиль Владельца для AGI-Brain
+
+owner:
+  id: "owner_primary"
+  name: "Owner"
+  
+# Риск-профиль
+risk:
+  # Максимальные потери за период
+  max_daily_loss_percent: 2.0
+  max_weekly_loss_percent: 5.0
+  max_monthly_loss_percent: 10.0
+  
+  # Максимальный размер позиции
+  max_position_size_percent: 10.0
+  
+  # Максимальное плечо
+  max_leverage: 5
+  
+  # UNSINKABLE баланс (не трогать никогда)
+  unsinkable_balance_usd: 10000
+
+# Финансовые цели
+goals:
+  # Целевая доходность
+  target_daily_return_percent: 0.5
+  target_monthly_return_percent: 15.0
+  
+  # Приоритет: безопасность vs агрессивность (0-1)
+  safety_priority: 0.7
+  
+  # Горизонт инвестирования
+  investment_horizon: "long_term"  # short_term, medium_term, long_term
+
+# Предпочтения
+preferences:
+  # Стиль принятия решений
+  decision_style: "analytical"  # aggressive, balanced, analytical, conservative
+  
+  # Уровень детализации отчётов
+  report_detail_level: "detailed"  # minimal, summary, detailed
+  
+  # Частота отчётов
+  report_frequency: "daily"
+  
+  # Предпочтительное время для важных уведомлений
+  notification_hours:
+    start: 9
+    end: 22
+    timezone: "Asia/Almaty"
+
+# Приоритеты развития системы
+development_priorities:
+  - "trading_optimization"
+  - "risk_management" 
+  - "agi_capabilities"
+  - "solve_ai_integration"
+
+# Ограничения
+constraints:
+  # Запрещённые инструменты (мем-токены, высокорисковые активы)
+  forbidden_assets:
+    - "SHIB"
+    - "DOGE"
+    - "PEPE"
+  
+  # Максимальное количество одновременных позиций
+  max_concurrent_positions: 5
+  
+  # Разрешённые биржи
+  allowed_exchanges:
+    - "bybit"
+    - "binance"

@@ -1,0 +1,15 @@
+{
+  "started_at": "2025-12-12T00:13:06.170027",
+  "candidates_generated": 100,
+  "stage1_survivors": 0,
+  "stage2_finalists": 0,
+  "validated_winners": 0,
+  "current_phase": "phase1",
+  "config": {
+    "mode": "test",
+    "target_hours": 0.5,
+    "target_candidates": 100,
+    "min_winners": 1,
+    "max_winners": 2
+  }
+}

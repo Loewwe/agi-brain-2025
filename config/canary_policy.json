@@ -1,0 +1,8 @@
+{
+  "max_canary_strategies": 1,
+  "min_sharpe": 1.5,
+  "max_dd": -8.0,
+  "min_trades": 50,
+  "require_global_status": "ok",
+  "require_unsinkable_ok": true
+}

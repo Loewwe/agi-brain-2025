@@ -1,0 +1,8 @@
+{
+  "min_trades": 50,
+  "min_sharpe": 1.5,
+  "min_sortino": 1.2,
+  "max_dd_pct": -5.0,
+  "max_dd_hard": -15.0,
+  "watchlist_min_sharpe": 1.0
+}

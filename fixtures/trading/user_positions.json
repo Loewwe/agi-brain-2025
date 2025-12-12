@@ -1,0 +1,58 @@
+[
+    {
+        "symbol": "XRPUSDT",
+        "side": "long",
+        "size": 11.3,
+        "entry_price": 2.1308,
+        "current_price": 2.1226,
+        "leverage": 20,
+        "unrealized_pnl": -0.09,
+        "unrealized_pnl_percent": -8.19,
+        "liquidation_price": 0,
+        "stop_loss": null,
+        "take_profit": null,
+        "opened_at": "2025-12-03T12:00:00"
+    },
+    {
+        "symbol": "DOGEUSDT",
+        "side": "long",
+        "size": 231,
+        "entry_price": 0.149020,
+        "current_price": 0.148584,
+        "leverage": 20,
+        "unrealized_pnl": -0.09,
+        "unrealized_pnl_percent": -5.78,
+        "liquidation_price": 0,
+        "stop_loss": null,
+        "take_profit": null,
+        "opened_at": "2025-12-03T12:00:00"
+    },
+    {
+        "symbol": "SOLUSDT",
+        "side": "long",
+        "size": 0.24,
+        "entry_price": 141.9100,
+        "current_price": 141.5226,
+        "leverage": 20,
+        "unrealized_pnl": -0.09,
+        "unrealized_pnl_percent": -5.79,
+        "liquidation_price": 0,
+        "stop_loss": null,
+        "take_profit": null,
+        "opened_at": "2025-12-03T12:00:00"
+    },
+    {
+        "symbol": "AVAXUSDT",
+        "side": "long",
+        "size": 4,
+        "entry_price": 14.7080,
+        "current_price": 14.6822,
+        "leverage": 20,
+        "unrealized_pnl": -0.12,
+        "unrealized_pnl_percent": -4.22,
+        "liquidation_price": 0,
+        "stop_loss": null,
+        "take_profit": null,
+        "opened_at": "2025-12-03T12:00:00"
+    }
+]

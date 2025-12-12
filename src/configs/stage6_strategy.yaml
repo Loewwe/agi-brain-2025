@@ -1,0 +1,178 @@
+# ============================================================
+# Stage6 Trading Strategy Configuration
+# ============================================================
+# Goals: WR ≥55%, R:R ≥1.8, Daily DD ≥ -1%
+# Mode: Autonomous, WITHOUT AGI-Brain
+# ============================================================
+
+version: "2.0"
+updated: "2024-12-06"
+
+# ============================================================
+# ENTRY SIGNALS
+# ============================================================
+entry:
+  # --- TREND ---
+  trend:
+    ema_period: 200
+    long_threshold: 1.004      # close > EMA200 * 1.004
+    short_threshold: 0.996     # close < EMA200 * 0.996
+    dead_zone_pct: 0.4         # ±0.4% = no trade zone
+    require_slope: true        # EMA slope must match direction
+  
+  # --- MOMENTUM ---
+  momentum:
+    rsi_period: 14
+    rsi_timeframe: "15m"
+    oversold: 32               # RSI ≤ 32 for LONG
+    overbought: 68             # RSI ≥ 68 for SHORT
+    reversal_check:
+      timeframe: "5m"
+      candles: 2               # 2 candle reversal
+    breakout:
+      candles: 5               # Breakout of 5×5m high/low
+  
+  # --- VOLUME ---
+  volume:
+    timeframe: "5m"
+    ma_period: 20
+    surge_multiplier: 1.5      # volume ≥ 1.5 × SMA20
+    max_spread_pct: 0.05       # Spread < 0.05%
+  
+  # --- VOLATILITY ---
+  volatility:
+    atr_period: 14
+    atr_timeframe: "15m"
+    min_atr_pct: 0.5           # ATR/Price ≥ 0.5%
+    max_atr_pct: 3.0           # ATR/Price ≤ 3.0%
+    require_rising: true       # ATR rising for last N candles
+    rising_candles: 4
+
+# ============================================================
+# COIN FILTER
+# ============================================================
+coin_filter:
+  min_volume_24h: 8_000_000    # $8M minimum
+  use_top_100: true            # Only top-100 by market cap
+  
+  # Dynamic ban system
+  ban:
+    enabled: true
+    min_trades: 30             # Evaluate after 30 trades
+    wr_threshold: 0.45         # Ban if WR < 45%
+    duration_days: 7           # Ban for 7 days
+  
+  # Manual whitelist (always allowed)
+  whitelist:
+    - BTCUSDT
+    - ETHUSDT
+    - BNBUSDT
+    - XRPUSDT
+    - SOLUSDT
+    - DOGEUSDT
+    - ADAUSDT
+    - AVAXUSDT
+    - LINKUSDT
+    - DOTUSDT
+  
+  # Manual blacklist (never trade)
+  blacklist: []
+
+# ============================================================
+# TRADE MANAGEMENT
+# ============================================================
+trade_management:
+  # --- STOP LOSS ---
+  stop_loss:
+    method: "atr"              # "atr" or "fixed_pct"
+    atr_multiplier: 1.0        # SL = 1 × ATR(15m)
+    max_pct: 1.2               # Cap at 1.2% of price
+    allow_widening: false      # NEVER widen SL
+  
+  # --- TAKE PROFIT ---
+  take_profit:
+    rr_ratio: 2.1              # TP = 2.1 × SL
+  
+  # --- BREAKEVEN ---
+  breakeven:
+    trigger_r: 1.0             # At +1R profit
+    offset_r: 0.15             # Move SL to BE + 0.15R
+  
+  # --- PARTIAL CLOSE ---
+  partial_close:
+    enabled: true
+    trigger_r: 1.5             # At +1.5R
+    close_pct: 50              # Close 50%
+  
+  # --- TRAILING STOP ---
+  trailing:
+    enabled: true
+    trigger_r: 1.5             # Start trailing at +1.5R
+    distance_r: 1.0            # Trail by 1R
+  
+  # --- TIMEOUT ---
+  timeout:
+    enabled: true
+    candles: 40                # 40 × 5m = 3.3 hours
+    timeframe: "5m"
+    action: "close_market"     # Close at market price
+
+# ============================================================
+# RISK MANAGEMENT
+# ============================================================
+risk:
+  # --- POSITION SIZING ---
+  position_sizing:
+    method: "fixed_risk"       # Risk fixed % per trade
+    risk_pct_min: 0.8
+    risk_pct_max: 1.0
+    risk_pct_default: 0.9
+  
+  # --- POSITION LIMITS ---
+  limits:
+    max_concurrent: 3          # ≤ 3 positions
+    max_trades_per_day: 12     # ≤ 12 trades/day
+  
+  # --- DAILY STOP ---
+  daily_stop:
+    enabled: true
+    loss_limit_pct: -1.0       # PnL ≤ -1% → stop
+    reset_hour_utc: 0          # Reset at 00:00 UTC
+  
+  # --- CORRELATION LIMIT (optional) ---
+  correlation:
+    enabled: false
+    max_same_direction: 2      # Max 2 trades same direction
+
+# ============================================================
+# GOALS
+# ============================================================
+goals:
+  target_win_rate: 0.55        # WR ≥ 55%
+  target_rr_ratio: 1.8         # R:R ≥ 1.8
+  max_daily_dd_pct: -1.0       # DD ≥ -1%
+
+# ============================================================
+# DISABLED FEATURES
+# ============================================================
+disabled:
+  agi_brain: true              # No AGI-Brain integration
+  loss_streak_pause: true      # No "3 losses → 4h pause"
+  external_signals: true       # No external signal sources
+
+# ============================================================
+# EXCHANGE SETTINGS
+# ============================================================
+exchange:
+  name: "binance"
+  market: "futures"
+  margin_mode: "isolated"      # Isolated, not cross
+  leverage: 10                 # Default leverage
+
+# ============================================================
+# TIMEFRAMES
+# ============================================================
+timeframes:
+  primary: "5m"                # Main trading timeframe
+  higher: "15m"                # Confirmation timeframe
+  trend: "1h"                  # Optional trend filter

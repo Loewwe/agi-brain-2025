@@ -1,0 +1,50 @@
+{
+    "global_risk": {
+        "max_daily_loss_pct": -3.0,
+        "max_exposure_pct": 20.0,
+        "max_concurrent_positions": 2,
+        "margin_mode": "ISOLATED",
+        "max_position_size_usd": 300
+    },
+    "strategies": {
+        "H048": {
+            "id": "H048",
+            "name": "Weekend Gap Close",
+            "enabled": true,
+            "class": "A_EVENT",
+            "mode": "canary",
+            "priority": 2,
+            "capital_share": 0.10,
+            "risk_profile": {
+                "max_position_pct_of_trading_capital": 0.10,
+                "max_daily_loss_pct": 0.03,
+                "max_leverage": 2
+            },
+            "params": {
+                "gap_threshold_pct": 0.8,
+                "tp_gap_closure_pct": 0.8,
+                "sl_atr_mult": 1.5
+            }
+        },
+        "H074": {
+            "id": "H074",
+            "name": "Panic Dump Capitulation",
+            "enabled": true,
+            "class": "A_EVENT",
+            "mode": "canary",
+            "priority": 1,
+            "capital_share": 0.10,
+            "risk_profile": {
+                "max_position_pct_of_trading_capital": 0.10,
+                "max_daily_loss_pct": 0.03,
+                "max_leverage": 2
+            },
+            "params": {
+                "drop_threshold_pct": -4.0,
+                "rsi_threshold": 30,
+                "tp_pct": 0.015,
+                "sl_pct": 0.008
+            }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Best Live Strategies",
+    "description": "Output of Optimization v2.0 - Stage 2, ready for Stage6",
+    "type": "array",
+    "maxItems": 5,
+    "items": {
+        "type": "object",
+        "required": [
+            "strategy_name",
+            "pattern_type",
+            "symbols",
+            "logic_human",
+            "dsl",
+            "backtest_metrics",
+            "recommended_capital_share",
+            "risk_profile"
+        ],
+        "properties": {
+            "strategy_name": {
+                "type": "string",
+                "description": "Human-readable strategy name"
+            },
+            "pattern_type": {
+                "type": "string",
+                "enum": [
+                    "mean_reversion_short_pump",
+                    "momentum_breakout_long",
+                    "volatility_crush_reversal",
+                    "trend_follow_long",
+                    "trend_follow_short"
+                ]
+            },
+            "symbols": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "minItems": 1
+            },
+            "logic_human": {
+                "type": "string",
+                "description": "Human-readable description of strategy logic"
+            },
+            "dsl": {
+                "type": "object",
+                "description": "Full DSL description for Stage6 execution"
+            },
+            "backtest_metrics": {
+                "type": "object",
+                "required": [
+                    "avg_daily_return",
+                    "pf",
+                    "wr",
+                    "max_dd",
+                    "num_trades"
+                ],
+                "properties": {
+                    "avg_daily_return": {
+                        "type": "number",
+                        "minimum": 0.025,
+                        "description": "Target: 2.5-5%/day"
+                    },
+                    "pf": {
+                        "type": "number",
+                        "minimum": 1.3
+                    },
+                    "wr": {
+                        "type": "number",
+                        "minimum": 0.55
+                    },
+                    "max_dd": {
+                        "type": "number",
+                        "maximum": 0.4
+                    },
+                    "num_trades": {
+                        "type": "integer"
+                    },
+                    "total_return_pct": {
+                        "type": "number"
+                    }
+                }
+            },
+            "recommended_capital_share": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Share of trading capital for this strategy"
+            },
+            "risk_profile": {
+                "type": "object",
+                "required": [
+                    "max_position_pct",
+                    "max_daily_loss_pct"
+                ],
+                "properties": {
+                    "max_position_pct": {
+                        "type": "number",
+                        "description": "Max position size as % of trading capital"
+                    },
+                    "max_daily_loss_pct": {
+                        "type": "number",
+                        "description": "Max daily loss limit for this strategy"
+                    }
+                }
+            }
+        }
+    }
+}

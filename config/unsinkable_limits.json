@@ -1,0 +1,9 @@
+{
+  "max_daily_loss_pct": 2.0,
+  "max_position_size_pct": 5.0,
+  "max_dd_allowed_pct": 10.0,
+  "min_sharpe_for_canary": 1.5,
+  "max_leverage": 10,
+  "max_open_trades": 5,
+  "reserve_ratio": 0.6
+}

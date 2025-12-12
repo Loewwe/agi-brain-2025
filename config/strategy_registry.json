@@ -1,0 +1,4 @@
+[
+  {"strategy_id": "rsi_bb_v1", "label": "RSI+BB 15m BTC", "engine": "rsi_bb", "symbols": ["BTCUSDT"], "timeframes": ["15m"], "mode": "research", "enabled": true, "priority": 10, "params": {"rsi_period": 14, "rsi_buy": 30, "rsi_sell": 70}},
+  {"strategy_id": "ema_cross_v1", "label": "EMA Cross 1h BTC", "engine": "ema_cross", "symbols": ["BTCUSDT"], "timeframes": ["1h"], "mode": "research", "enabled": true, "priority": 5, "params": {"fast_ema": 9, "slow_ema": 21}}
+]

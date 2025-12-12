@@ -1,0 +1,984 @@
+
+=== Starting Tuning Process ===
+
+Loading data and training model...
+{"base_path": "data/market", "event": "market_log.initialized", "timestamp": "2025-12-07T16:45:53.169893Z"}
+{"event": "dataset_builder.initialized", "timestamp": "2025-12-07T16:45:53.264238Z"}
+{"symbols": 2, "date_from": "2024-01-01", "date_to": "2024-06-01", "event": "dataset_builder.building", "timestamp": "2025-12-07T16:45:53.264291Z"}
+{"row_count": 88128, "symbols": 2, "checksum": "ef587263", "event": "dataset_builder.built", "timestamp": "2025-12-07T16:45:54.456476Z"}
+{"horizon_bars": 3, "target_type": "direction", "event": "labels_builder.initialized", "timestamp": "2025-12-07T16:45:54.457843Z"}
+{"rows": 88128, "labeled": "np.int64(88128)", "target_type": "direction", "event": "labels_builder.labeled", "timestamp": "2025-12-07T16:45:54.470928Z"}
+
+--- Dataset Stats ---
+count    88073.000000
+mean        35.878725
+std         15.919117
+min          4.642568
+25%         23.814841
+50%         33.429186
+75%         45.446991
+max        100.000000
+Name: adx, dtype: float64
+---------------------
+
+{"model_type": "lightgbm", "event": "alpha_engine.initialized", "timestamp": "2025-12-07T16:45:54.481528Z"}
+{"train": 61689, "val": 13219, "test": 13220, "features": 19, "event": "alpha_engine.data_split", "timestamp": "2025-12-07T16:45:54.521888Z"}
+{"accuracy": 0.8798813402713612, "precision": 0.8842600097260496, "recall": 0.8765868552145267, "f1": 0.8804067140090381, "roc_auc": 0.9352169126234675, "event": "alpha_engine.metrics.train", "timestamp": "2025-12-07T16:45:56.314714Z"}
+{"accuracy": 0.8765413420077162, "precision": 0.8807686488122257, "recall": 0.8733683420855214, "f1": 0.8770528853397619, "roc_auc": 0.8810591036529348, "event": "alpha_engine.metrics.val", "timestamp": "2025-12-07T16:45:56.337189Z"}
+{"accuracy": 0.8351739788199698, "precision": 0.8337367624810893, "recall": 0.836140191169777, "f1": 0.83493674721612, "roc_auc": 0.8341181041111685, "event": "alpha_engine.metrics.test", "timestamp": "2025-12-07T16:45:56.359147Z"}
+{"test_auc": 0.8341181041111685, "test_accuracy": 0.8351739788199698, "time_seconds": 1.8777167797088623, "event": "alpha_engine.trained", "timestamp": "2025-12-07T16:45:56.359347Z"}
+Test set: 2024-05-10 01:10:00 to 2024-06-01 23:55:00 (13220 rows)
+
+--- Step 3b: Regime Filter Verification ---
+{"entry_threshold": 0.65, "event": "alpha_strategy.initialized", "timestamp": "2025-12-07T16:45:56.359965Z"}
+{"min_confidence": 0.65, "max_daily_trades": 20, "event": "single_agent.initialized", "timestamp": "2025-12-07T16:45:56.359984Z"}
+{"entry_threshold": 0.65, "event": "alpha_strategy.initialized", "timestamp": "2025-12-07T16:45:56.360003Z"}
+{"min_confidence": 0.65, "max_daily_trades": 20, "event": "single_agent.initialized", "timestamp": "2025-12-07T16:45:56.360014Z"}
+{"entry_threshold": 0.65, "event": "alpha_strategy.initialized", "timestamp": "2025-12-07T16:45:56.360027Z"}
+{"min_confidence": 0.65, "max_daily_trades": 20, "event": "single_agent.initialized", "timestamp": "2025-12-07T16:45:56.360036Z"}
+{"entry_threshold": 0.65, "event": "alpha_strategy.initialized", "timestamp": "2025-12-07T16:45:56.360048Z"}
+{"min_confidence": 0.65, "max_daily_trades": 20, "event": "single_agent.initialized", "timestamp": "2025-12-07T16:45:56.360057Z"}
+{"strategy": "Regime_ADX_20.0", "event": "comparison.running", "timestamp": "2025-12-07T16:45:56.360070Z"}
+{"config": {"start_balance": 1000.0, "leverage": 20, "risk_per_trade": 0.009, "max_positions": 3, "max_trades_day": 12, "daily_stop_pct": -0.01, "max_open_risk_pct": 0.027, "sl_max_pct": 0.012, "atr_multiplier": 1.0, "tp_multiplier": 2.1, "be_trigger_r": 1.0, "be_offset_r": 0.15, "partial_trigger_r": 1.5, "partial_pct": 0.5, "trailing_distance_r": 1.0, "timeout_bars": 40, "commission": 0.0004, "slippage_pct": 0.0002, "random_seed": null, "rsi_oversold": 35.0, "rsi_overbought": 65.0, "volume_surge_mult": 1.5, "atr_min_pct": 0.5, "atr_max_pct": 3.0, "ema_long_threshold": 1.004, "ema_short_threshold": 0.996, "ema_dead_zone_pct": 0.004, "excluded_hours": [0, 1, 2, 3, 4, 5]}, "event": "simulator.initialized", "timestamp": "2025-12-07T16:45:56.360093Z"}
+{"symbols": 2, "rows": 13220, "event": "simulator.starting", "timestamp": "2025-12-07T16:45:56.360554Z"}
+{"date": "2024-05-10", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.363572Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8694631446413474, "strength": 0.8694631446413474, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.372273Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8694631446413474, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.372314Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11526855243363927, "strength": 0.8847314475663607, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.373915Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8847314475663607, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.373936Z"}
+{"date": "2024-05-10", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.397552Z"}
+{"date": "2024-05-11", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.397586Z"}
+{"symbol": "ETH/USDT", "adx": 14.495894949334286, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.404922Z"}
+{"symbol": "BTC/USDT", "adx": 15.58475662437421, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.404959Z"}
+{"symbol": "BTC/USDT", "adx": 14.655305808219088, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405046Z"}
+{"symbol": "ETH/USDT", "adx": 12.374498580036477, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405078Z"}
+{"symbol": "ETH/USDT", "adx": 11.401886202512097, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405193Z"}
+{"symbol": "BTC/USDT", "adx": 14.320726525717108, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405224Z"}
+{"symbol": "BTC/USDT", "adx": 14.79277607826869, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405307Z"}
+{"symbol": "ETH/USDT", "adx": 11.406673058701383, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405337Z"}
+{"symbol": "ETH/USDT", "adx": 12.265720990684505, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405419Z"}
+{"symbol": "BTC/USDT", "adx": 13.745448375418416, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405448Z"}
+{"symbol": "BTC/USDT", "adx": 12.558071077416033, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405530Z"}
+{"symbol": "ETH/USDT", "adx": 12.254806643137568, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405559Z"}
+{"symbol": "ETH/USDT", "adx": 12.182651956477244, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405642Z"}
+{"symbol": "BTC/USDT", "adx": 11.938954251143343, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405671Z"}
+{"symbol": "BTC/USDT", "adx": 13.097126183112165, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405752Z"}
+{"symbol": "ETH/USDT", "adx": 13.393471869664392, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405783Z"}
+{"symbol": "BTC/USDT", "adx": 16.001766218514838, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405860Z"}
+{"symbol": "ETH/USDT", "adx": 16.329877814315196, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405888Z"}
+{"symbol": "ETH/USDT", "adx": 19.266283758966004, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.405968Z"}
+{"symbol": "BTC/USDT", "adx": 17.820662027975324, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.406007Z"}
+{"symbol": "BTC/USDT", "adx": 17.90250314257916, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.406086Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8607955639164891, "strength": 0.8607955639164891, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.407720Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8607955639164891, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.407737Z"}
+{"symbol": "BTC/USDT", "adx": 18.623163304739883, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.407843Z"}
+{"date": "2024-05-11", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.421325Z"}
+{"date": "2024-05-12", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.421352Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8740325438082638, "strength": 0.8740325438082638, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.430241Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8740325438082638, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.430265Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1402408805715768, "strength": 0.8597591194284232, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.431747Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597591194284232, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.431765Z"}
+{"date": "2024-05-12", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.455526Z"}
+{"date": "2024-05-13", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.455564Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12528330898433152, "strength": 0.8747166910156685, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.464492Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8747166910156685, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.464519Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8569085313123336, "strength": 0.8569085313123336, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.466028Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8569085313123336, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.466046Z"}
+{"date": "2024-05-13", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.487769Z"}
+{"date": "2024-05-14", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.487805Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11568135644463291, "strength": 0.884318643555367, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.496878Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.884318643555367, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.496906Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8714744884554703, "strength": 0.8714744884554703, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.498384Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8714744884554703, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.498401Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13081555063168815, "strength": 0.8691844493683119, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.514415Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8691844493683119, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.514442Z"}
+{"date": "2024-05-14", "trades": 3, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.536332Z"}
+{"date": "2024-05-15", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.536374Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8624700617641006, "strength": 0.8624700617641006, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.545435Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8624700617641006, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.545467Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11865495309056687, "strength": 0.8813450469094332, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.547058Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8813450469094332, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.547078Z"}
+{"date": "2024-05-15", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.572801Z"}
+{"date": "2024-05-16", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.572837Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8595590393998856, "strength": 0.8595590393998856, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.581872Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8595590393998856, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.581898Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13817032678482385, "strength": 0.8618296732151761, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.583425Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8618296732151761, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.583444Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8477616254453457, "strength": 0.8477616254453457, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.585009Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8477616254453457, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.585026Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12498134396349168, "strength": 0.8750186560365083, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.586502Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8750186560365083, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.586519Z"}
+{"date": "2024-05-16", "trades": 4, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.600940Z"}
+{"date": "2024-05-17", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.600966Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8678662893335257, "strength": 0.8678662893335257, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.610624Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8678662893335257, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.610678Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11723595048366056, "strength": 0.8827640495163395, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.612283Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8827640495163395, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.612308Z"}
+{"date": "2024-05-17", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.632732Z"}
+{"date": "2024-05-18", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.632759Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8885362177453977, "strength": 0.8885362177453977, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.642132Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8885362177453977, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.642162Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18333900940052447, "strength": 0.8166609905994755, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.643644Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8166609905994755, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.643662Z"}
+{"date": "2024-05-18", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.662452Z"}
+{"date": "2024-05-19", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.662481Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.20578174582456144, "strength": 0.7942182541754386, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.671296Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7942182541754386, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.671322Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8973279559047481, "strength": 0.8973279559047481, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.672801Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8973279559047481, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.672819Z"}
+{"symbol": "ETH/USDT", "adx": 17.67155331744692, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.684401Z"}
+{"symbol": "ETH/USDT", "adx": 14.833313899058114, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.687349Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18245290009445364, "strength": 0.8175470999055463, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.688867Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8175470999055463, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.688884Z"}
+{"symbol": "ETH/USDT", "adx": 13.082149879741952, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.688939Z"}
+{"symbol": "ETH/USDT", "adx": 13.637755671666113, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.690456Z"}
+{"symbol": "ETH/USDT", "adx": 15.009483248072456, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.690554Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.21664777121857978, "strength": 0.7833522287814202, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.691977Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7833522287814202, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.691992Z"}
+{"symbol": "ETH/USDT", "adx": 14.456159069090889, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.692096Z"}
+{"symbol": "ETH/USDT", "adx": 15.649244061265888, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.693719Z"}
+{"symbol": "ETH/USDT", "adx": 16.157948284952372, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.695239Z"}
+{"symbol": "ETH/USDT", "adx": 17.24661552009185, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.696746Z"}
+{"symbol": "ETH/USDT", "adx": 17.81314725875053, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.698260Z"}
+{"symbol": "ETH/USDT", "adx": 19.005145778756287, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.699766Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1925125805762074, "strength": 0.8074874194237927, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.701224Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8074874194237927, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.701240Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.17027075820210136, "strength": 0.8297292417978986, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.702985Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8297292417978986, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.703014Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9005102416155901, "strength": 0.9005102416155901, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.704575Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9005102416155901, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.704595Z"}
+{"date": "2024-05-19", "trades": 7, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.726667Z"}
+{"date": "2024-05-20", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.726695Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8822923801548038, "strength": 0.8822923801548038, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.735549Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8822923801548038, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.735576Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13448191266717305, "strength": 0.865518087332827, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.737125Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.865518087332827, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.737146Z"}
+{"date": "2024-05-20", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.762661Z"}
+{"date": "2024-05-21", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.762702Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.08152936607449288, "strength": 0.9184706339255071, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.771722Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9184706339255071, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.771751Z"}
+{"symbol": "ETH/USDT", "adx": 15.885845761146657, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.771799Z"}
+{"symbol": "ETH/USDT", "adx": 13.521348067902242, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.771900Z"}
+{"date": "2024-05-21", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.786122Z"}
+{"date": "2024-05-22", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.786143Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09406591437912747, "strength": 0.9059340856208725, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.795046Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9059340856208725, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.795070Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8984705461125727, "strength": 0.8984705461125727, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.796552Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8984705461125727, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.796569Z"}
+{"date": "2024-05-22", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.818049Z"}
+{"date": "2024-05-23", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.818076Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.0821362078710649, "strength": 0.9178637921289351, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.826946Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9178637921289351, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.826969Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8626453269395994, "strength": 0.8626453269395994, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.828447Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8626453269395994, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.828463Z"}
+{"date": "2024-05-23", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.850532Z"}
+{"date": "2024-05-24", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.850587Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8886068225730873, "strength": 0.8886068225730873, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.859675Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8886068225730873, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.859704Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14022008309256886, "strength": 0.8597799169074312, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.861199Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597799169074312, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.861218Z"}
+{"date": "2024-05-24", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.880351Z"}
+{"date": "2024-05-25", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.880384Z"}
+{"symbol": "ETH/USDT", "adx": 12.695033336759051, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.887720Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.07061729777952963, "strength": 0.9293827022204704, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.889524Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9293827022204704, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.889549Z"}
+{"symbol": "ETH/USDT", "adx": 9.956384583255828, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.889667Z"}
+{"symbol": "ETH/USDT", "adx": 8.062041081171728, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:56.891292Z"}
+{"date": "2024-05-25", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.905817Z"}
+{"date": "2024-05-26", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.905848Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06741267428555849, "strength": 0.9325873257144415, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.914918Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9325873257144415, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.914946Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8744425132876005, "strength": 0.8744425132876005, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.916459Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8744425132876005, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.916477Z"}
+{"date": "2024-05-26", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.932407Z"}
+{"date": "2024-05-27", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.932435Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8349322471298434, "strength": 0.8349322471298434, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.941392Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8349322471298434, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.941416Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06712770953881, "strength": 0.93287229046119, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.942892Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.93287229046119, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.942919Z"}
+{"date": "2024-05-27", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.961791Z"}
+{"date": "2024-05-28", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.961822Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9095016768577708, "strength": 0.9095016768577708, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.970929Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9095016768577708, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.970956Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.20907961836781266, "strength": 0.7909203816321874, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.972473Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7909203816321874, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.972492Z"}
+{"date": "2024-05-28", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:56.988376Z"}
+{"date": "2024-05-29", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:56.988401Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9031723336012405, "strength": 0.9031723336012405, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.997274Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9031723336012405, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.997297Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14969632384841178, "strength": 0.8503036761515882, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:56.998766Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8503036761515882, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:56.998783Z"}
+{"date": "2024-05-29", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.016094Z"}
+{"date": "2024-05-30", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.016123Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8950939739417816, "strength": 0.8950939739417816, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.025125Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8950939739417816, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.025149Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12120756580039588, "strength": 0.8787924341996041, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.026641Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8787924341996041, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.026658Z"}
+{"date": "2024-05-30", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.042858Z"}
+{"date": "2024-05-31", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.042892Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09682057968128939, "strength": 0.9031794203187106, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.051741Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9031794203187106, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.051764Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9192215494173255, "strength": 0.9192215494173255, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.053221Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9192215494173255, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.053238Z"}
+{"date": "2024-05-31", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.076327Z"}
+{"date": "2024-06-01", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.076363Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18560819012463778, "strength": 0.8143918098753622, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.085162Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8143918098753622, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.085185Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9288418061083906, "strength": 0.9288418061083906, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.086635Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9288418061083906, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.086651Z"}
+{"symbol": "BTC/USDT", "adx": 19.29564994414623, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.100288Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9282828803149517, "strength": 0.9282828803149517, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.103360Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9282828803149517, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.103383Z"}
+{"symbol": "BTC/USDT", "adx": 18.16093958998635, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.103440Z"}
+{"symbol": "BTC/USDT", "adx": 17.66801144415693, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.103544Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9218250637948954, "strength": 0.9218250637948954, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.106524Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9218250637948954, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.106541Z"}
+{"symbol": "BTC/USDT", "adx": 18.75378102049232, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.106584Z"}
+{"symbol": "BTC/USDT", "adx": 19.533599166801476, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.108124Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18402433337451496, "strength": 0.815975666625485, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.111266Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.815975666625485, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.111306Z"}
+{"symbol": "BTC/USDT", "adx": 19.354607751006405, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.111458Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9058385042297293, "strength": 0.9058385042297293, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.113075Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9058385042297293, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.113095Z"}
+{"symbol": "BTC/USDT", "adx": 19.04930330977334, "threshold": 20.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.113212Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.17780673708336903, "strength": 0.822193262916631, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.116253Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.822193262916631, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.116276Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8943107169343354, "strength": 0.8943107169343354, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.123617Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8943107169343354, "daily_trades": 8, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.123636Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18185075362733488, "strength": 0.8181492463726652, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.134271Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8181492463726652, "daily_trades": 9, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.134327Z"}
+{"trades": 58, "final_equity": "704.51", "total_return": "-29.55%", "event": "simulator.completed", "timestamp": "2025-12-07T16:45:57.151246Z"}
+{"strategy": "Regime_ADX_20.0", "return_pct": -29.548825104843857, "trades": 58, "event": "comparison.completed", "timestamp": "2025-12-07T16:45:57.151339Z"}
+{"strategy": "Regime_ADX_25.0", "event": "comparison.running", "timestamp": "2025-12-07T16:45:57.151354Z"}
+{"config": {"start_balance": 1000.0, "leverage": 20, "risk_per_trade": 0.009, "max_positions": 3, "max_trades_day": 12, "daily_stop_pct": -0.01, "max_open_risk_pct": 0.027, "sl_max_pct": 0.012, "atr_multiplier": 1.0, "tp_multiplier": 2.1, "be_trigger_r": 1.0, "be_offset_r": 0.15, "partial_trigger_r": 1.5, "partial_pct": 0.5, "trailing_distance_r": 1.0, "timeout_bars": 40, "commission": 0.0004, "slippage_pct": 0.0002, "random_seed": null, "rsi_oversold": 35.0, "rsi_overbought": 65.0, "volume_surge_mult": 1.5, "atr_min_pct": 0.5, "atr_max_pct": 3.0, "ema_long_threshold": 1.004, "ema_short_threshold": 0.996, "ema_dead_zone_pct": 0.004, "excluded_hours": [0, 1, 2, 3, 4, 5]}, "event": "simulator.initialized", "timestamp": "2025-12-07T16:45:57.151371Z"}
+{"symbols": 2, "rows": 13220, "event": "simulator.starting", "timestamp": "2025-12-07T16:45:57.151662Z"}
+{"date": "2024-05-10", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.153441Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8694631446413474, "strength": 0.8694631446413474, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.161392Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8694631446413474, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.161422Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11526855243363927, "strength": 0.8847314475663607, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.162987Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8847314475663607, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.163006Z"}
+{"date": "2024-05-10", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.186347Z"}
+{"date": "2024-05-11", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.186390Z"}
+{"symbol": "ETH/USDT", "adx": 14.495894949334286, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.193862Z"}
+{"symbol": "BTC/USDT", "adx": 15.58475662437421, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.193901Z"}
+{"symbol": "BTC/USDT", "adx": 14.655305808219088, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.193988Z"}
+{"symbol": "ETH/USDT", "adx": 12.374498580036477, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194019Z"}
+{"symbol": "ETH/USDT", "adx": 11.401886202512097, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194101Z"}
+{"symbol": "BTC/USDT", "adx": 14.320726525717108, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194131Z"}
+{"symbol": "BTC/USDT", "adx": 14.79277607826869, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194214Z"}
+{"symbol": "ETH/USDT", "adx": 11.406673058701383, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194243Z"}
+{"symbol": "ETH/USDT", "adx": 12.265720990684505, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194324Z"}
+{"symbol": "BTC/USDT", "adx": 13.745448375418416, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194352Z"}
+{"symbol": "BTC/USDT", "adx": 12.558071077416033, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194443Z"}
+{"symbol": "ETH/USDT", "adx": 12.254806643137568, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194472Z"}
+{"symbol": "ETH/USDT", "adx": 12.182651956477244, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194552Z"}
+{"symbol": "BTC/USDT", "adx": 11.938954251143343, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194580Z"}
+{"symbol": "BTC/USDT", "adx": 13.097126183112165, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194659Z"}
+{"symbol": "ETH/USDT", "adx": 13.393471869664392, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194687Z"}
+{"symbol": "BTC/USDT", "adx": 16.001766218514838, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194769Z"}
+{"symbol": "ETH/USDT", "adx": 16.329877814315196, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194797Z"}
+{"symbol": "ETH/USDT", "adx": 19.266283758966004, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194878Z"}
+{"symbol": "BTC/USDT", "adx": 17.820662027975324, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194906Z"}
+{"symbol": "BTC/USDT", "adx": 17.90250314257916, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.194986Z"}
+{"symbol": "ETH/USDT", "adx": 20.546457326194, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.195013Z"}
+{"symbol": "BTC/USDT", "adx": 18.623163304739883, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.195094Z"}
+{"symbol": "ETH/USDT", "adx": 21.44175177154614, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.195122Z"}
+{"symbol": "BTC/USDT", "adx": 20.26812656278298, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.195203Z"}
+{"symbol": "ETH/USDT", "adx": 23.997468019617724, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.195231Z"}
+{"symbol": "BTC/USDT", "adx": 24.56569395571865, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.195311Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8616836186647581, "strength": 0.8616836186647581, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.196990Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8616836186647581, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.197008Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12189285071600146, "strength": 0.8781071492839986, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.198594Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8781071492839986, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.198610Z"}
+{"date": "2024-05-11", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.217740Z"}
+{"date": "2024-05-12", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.217766Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8740325438082638, "strength": 0.8740325438082638, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.226619Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8740325438082638, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.226642Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1402408805715768, "strength": 0.8597591194284232, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.228125Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597591194284232, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.228142Z"}
+{"date": "2024-05-12", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.251397Z"}
+{"date": "2024-05-13", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.251442Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12528330898433152, "strength": 0.8747166910156685, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.260423Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8747166910156685, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.260446Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8569085313123336, "strength": 0.8569085313123336, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.261908Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8569085313123336, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.261924Z"}
+{"date": "2024-05-13", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.283440Z"}
+{"date": "2024-05-14", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.283465Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11568135644463291, "strength": 0.884318643555367, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.292347Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.884318643555367, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.292369Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8714744884554703, "strength": 0.8714744884554703, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.293834Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8714744884554703, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.293850Z"}
+{"symbol": "BTC/USDT", "adx": 24.6396271562866, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.304368Z"}
+{"symbol": "BTC/USDT", "adx": 22.925833650852855, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.307309Z"}
+{"symbol": "BTC/USDT", "adx": 22.629214578861205, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.308840Z"}
+{"date": "2024-05-14", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.322798Z"}
+{"date": "2024-05-15", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.322822Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8624700617641006, "strength": 0.8624700617641006, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.331692Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8624700617641006, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.331715Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11865495309056687, "strength": 0.8813450469094332, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.333168Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8813450469094332, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.333186Z"}
+{"date": "2024-05-15", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.359380Z"}
+{"date": "2024-05-16", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.359409Z"}
+{"symbol": "ETH/USDT", "adx": 22.78747855258879, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.366753Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13817032678482385, "strength": 0.8618296732151761, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.368334Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8618296732151761, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.368366Z"}
+{"symbol": "ETH/USDT", "adx": 21.86790716350023, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.368470Z"}
+{"date": "2024-05-16", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.382727Z"}
+{"date": "2024-05-17", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.382745Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8678662893335257, "strength": 0.8678662893335257, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.391666Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8678662893335257, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.391690Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11723595048366056, "strength": 0.8827640495163395, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.393158Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8827640495163395, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.393174Z"}
+{"date": "2024-05-17", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.413662Z"}
+{"date": "2024-05-18", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.413699Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8885362177453977, "strength": 0.8885362177453977, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.422652Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8885362177453977, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.422680Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18333900940052447, "strength": 0.8166609905994755, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.424152Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8166609905994755, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.424170Z"}
+{"date": "2024-05-18", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.442899Z"}
+{"date": "2024-05-19", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.442929Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.20578174582456144, "strength": 0.7942182541754386, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.451828Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7942182541754386, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.451852Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8973279559047481, "strength": 0.8973279559047481, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.453320Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8973279559047481, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.453339Z"}
+{"symbol": "ETH/USDT", "adx": 21.34838508167126, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.460662Z"}
+{"symbol": "ETH/USDT", "adx": 17.67155331744692, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.465022Z"}
+{"symbol": "ETH/USDT", "adx": 14.833313899058114, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.467931Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18245290009445364, "strength": 0.8175470999055463, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.469446Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8175470999055463, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.469465Z"}
+{"symbol": "ETH/USDT", "adx": 13.082149879741952, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.469528Z"}
+{"symbol": "ETH/USDT", "adx": 13.637755671666113, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.471061Z"}
+{"symbol": "ETH/USDT", "adx": 15.009483248072456, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.471163Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.21664777121857978, "strength": 0.7833522287814202, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.472580Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7833522287814202, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.472596Z"}
+{"symbol": "ETH/USDT", "adx": 14.456159069090889, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.472698Z"}
+{"symbol": "ETH/USDT", "adx": 15.649244061265888, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.474208Z"}
+{"symbol": "ETH/USDT", "adx": 16.157948284952372, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.475733Z"}
+{"symbol": "ETH/USDT", "adx": 17.24661552009185, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.477250Z"}
+{"symbol": "ETH/USDT", "adx": 17.81314725875053, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.478747Z"}
+{"symbol": "BTC/USDT", "adx": 24.810066677058995, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.480169Z"}
+{"symbol": "ETH/USDT", "adx": 19.005145778756287, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.480269Z"}
+{"symbol": "BTC/USDT", "adx": 24.491426147541528, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.480313Z"}
+{"symbol": "BTC/USDT", "adx": 24.34392773951176, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.480400Z"}
+{"symbol": "ETH/USDT", "adx": 21.080727174105164, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.480430Z"}
+{"symbol": "ETH/USDT", "adx": 24.181305694726763, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.480516Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.17933419009569787, "strength": 0.8206658099043022, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.481949Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8206658099043022, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.481964Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9103691429594547, "strength": 0.9103691429594547, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.483450Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9103691429594547, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.483465Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18057777939073053, "strength": 0.8194222206092695, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.495730Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8194222206092695, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.495769Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.896932071241264, "strength": 0.896932071241264, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.501684Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.896932071241264, "daily_trades": 8, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.501712Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.16693456704388326, "strength": 0.8330654329561167, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.503178Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8330654329561167, "daily_trades": 9, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.503205Z"}
+{"date": "2024-05-19", "trades": 9, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.523610Z"}
+{"date": "2024-05-20", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.523641Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8822923801548038, "strength": 0.8822923801548038, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.532506Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8822923801548038, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.532529Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13448191266717305, "strength": 0.865518087332827, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.533992Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.865518087332827, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.534009Z"}
+{"date": "2024-05-20", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.558487Z"}
+{"date": "2024-05-21", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.558525Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.08152936607449288, "strength": 0.9184706339255071, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.567643Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9184706339255071, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.567666Z"}
+{"symbol": "ETH/USDT", "adx": 15.885845761146657, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.567710Z"}
+{"symbol": "ETH/USDT", "adx": 13.521348067902242, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.567804Z"}
+{"date": "2024-05-21", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.582353Z"}
+{"date": "2024-05-22", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.582380Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09406591437912747, "strength": 0.9059340856208725, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.591395Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9059340856208725, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.591421Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8984705461125727, "strength": 0.8984705461125727, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.592959Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8984705461125727, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.592977Z"}
+{"date": "2024-05-22", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.615426Z"}
+{"date": "2024-05-23", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.615474Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.0821362078710649, "strength": 0.9178637921289351, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.624725Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9178637921289351, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.624755Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8626453269395994, "strength": 0.8626453269395994, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.626308Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8626453269395994, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.626327Z"}
+{"date": "2024-05-23", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.648023Z"}
+{"date": "2024-05-24", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.648063Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8886068225730873, "strength": 0.8886068225730873, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.657068Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8886068225730873, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.657100Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14022008309256886, "strength": 0.8597799169074312, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.658618Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597799169074312, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.658641Z"}
+{"date": "2024-05-24", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.677506Z"}
+{"date": "2024-05-25", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.677544Z"}
+{"symbol": "ETH/USDT", "adx": 12.695033336759051, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.684891Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.07061729777952963, "strength": 0.9293827022204704, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.686603Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9293827022204704, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.686621Z"}
+{"symbol": "ETH/USDT", "adx": 9.956384583255828, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.686727Z"}
+{"symbol": "ETH/USDT", "adx": 8.062041081171728, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.688296Z"}
+{"date": "2024-05-25", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.702589Z"}
+{"date": "2024-05-26", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.702605Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06741267428555849, "strength": 0.9325873257144415, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.711424Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9325873257144415, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.711442Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8744425132876005, "strength": 0.8744425132876005, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.712912Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8744425132876005, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.712931Z"}
+{"date": "2024-05-26", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.728770Z"}
+{"date": "2024-05-27", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.728794Z"}
+{"symbol": "ETH/USDT", "adx": 22.643889407463934, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736068Z"}
+{"symbol": "BTC/USDT", "adx": 21.892538074424472, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736103Z"}
+{"symbol": "ETH/USDT", "adx": 20.896663106997686, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736186Z"}
+{"symbol": "BTC/USDT", "adx": 22.745684851827956, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736218Z"}
+{"symbol": "BTC/USDT", "adx": 24.58436496211228, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736295Z"}
+{"symbol": "ETH/USDT", "adx": 20.80315061632863, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736324Z"}
+{"symbol": "ETH/USDT", "adx": 21.998387524918744, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.736420Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06344777349671787, "strength": 0.9365522265032822, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.737955Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9365522265032822, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.737973Z"}
+{"symbol": "ETH/USDT", "adx": 24.265399826820637, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.738076Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.891077733074761, "strength": 0.891077733074761, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.741027Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.891077733074761, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.741043Z"}
+{"date": "2024-05-27", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.755120Z"}
+{"date": "2024-05-28", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.755141Z"}
+{"symbol": "ETH/USDT", "adx": 21.62516935872625, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.762412Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.20907961836781266, "strength": 0.7909203816321874, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.763947Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7909203816321874, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.763964Z"}
+{"symbol": "ETH/USDT", "adx": 22.836402735108823, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.764064Z"}
+{"date": "2024-05-28", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.778401Z"}
+{"date": "2024-05-29", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.778420Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9031723336012405, "strength": 0.9031723336012405, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.787383Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9031723336012405, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.787404Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14969632384841178, "strength": 0.8503036761515882, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.788869Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8503036761515882, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.788886Z"}
+{"date": "2024-05-29", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.806228Z"}
+{"date": "2024-05-30", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.806251Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8950939739417816, "strength": 0.8950939739417816, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.815096Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8950939739417816, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.815117Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12120756580039588, "strength": 0.8787924341996041, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.816584Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8787924341996041, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.816600Z"}
+{"date": "2024-05-30", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.832692Z"}
+{"date": "2024-05-31", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.832724Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09682057968128939, "strength": 0.9031794203187106, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.841859Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9031794203187106, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.841897Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9192215494173255, "strength": 0.9192215494173255, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.843428Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9192215494173255, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.843446Z"}
+{"date": "2024-05-31", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.866668Z"}
+{"date": "2024-06-01", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.866698Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18560819012463778, "strength": 0.8143918098753622, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.875581Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8143918098753622, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.875604Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9288418061083906, "strength": 0.9288418061083906, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.877056Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9288418061083906, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.877072Z"}
+{"symbol": "BTC/USDT", "adx": 24.087609510462745, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.882935Z"}
+{"symbol": "BTC/USDT", "adx": 23.09899485458137, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.885848Z"}
+{"symbol": "BTC/USDT", "adx": 20.608882052888863, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.887361Z"}
+{"symbol": "BTC/USDT", "adx": 19.29564994414623, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.890282Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9282828803149517, "strength": 0.9282828803149517, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.893168Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9282828803149517, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.893185Z"}
+{"symbol": "BTC/USDT", "adx": 18.16093958998635, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.893238Z"}
+{"symbol": "BTC/USDT", "adx": 17.66801144415693, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.893336Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9218250637948954, "strength": 0.9218250637948954, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.896272Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9218250637948954, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.896292Z"}
+{"symbol": "BTC/USDT", "adx": 18.75378102049232, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.896333Z"}
+{"symbol": "BTC/USDT", "adx": 19.533599166801476, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.897841Z"}
+{"symbol": "BTC/USDT", "adx": 20.094455551178555, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.899351Z"}
+{"symbol": "BTC/USDT", "adx": 19.354607751006405, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.899450Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9058385042297293, "strength": 0.9058385042297293, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.900884Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9058385042297293, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.900900Z"}
+{"symbol": "BTC/USDT", "adx": 19.04930330977334, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.901003Z"}
+{"symbol": "BTC/USDT", "adx": 22.482893944345754, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.902517Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.17780673708336903, "strength": 0.822193262916631, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.906853Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.822193262916631, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.906873Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8943107169343354, "strength": 0.8943107169343354, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.909772Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8943107169343354, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.909788Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1816044802456612, "strength": 0.8183955197543388, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.924269Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8183955197543388, "daily_trades": 8, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.924293Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8964249654098966, "strength": 0.8964249654098966, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.925787Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8964249654098966, "daily_trades": 9, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.925803Z"}
+{"symbol": "BTC/USDT", "adx": 24.206830190026803, "threshold": 25.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.931593Z"}
+{"trades": 56, "final_equity": "720.16", "total_return": "-27.98%", "event": "simulator.completed", "timestamp": "2025-12-07T16:45:57.950575Z"}
+{"strategy": "Regime_ADX_25.0", "return_pct": -27.984169325078607, "trades": 56, "event": "comparison.completed", "timestamp": "2025-12-07T16:45:57.950661Z"}
+{"strategy": "Regime_ADX_30.0", "event": "comparison.running", "timestamp": "2025-12-07T16:45:57.950676Z"}
+{"config": {"start_balance": 1000.0, "leverage": 20, "risk_per_trade": 0.009, "max_positions": 3, "max_trades_day": 12, "daily_stop_pct": -0.01, "max_open_risk_pct": 0.027, "sl_max_pct": 0.012, "atr_multiplier": 1.0, "tp_multiplier": 2.1, "be_trigger_r": 1.0, "be_offset_r": 0.15, "partial_trigger_r": 1.5, "partial_pct": 0.5, "trailing_distance_r": 1.0, "timeout_bars": 40, "commission": 0.0004, "slippage_pct": 0.0002, "random_seed": null, "rsi_oversold": 35.0, "rsi_overbought": 65.0, "volume_surge_mult": 1.5, "atr_min_pct": 0.5, "atr_max_pct": 3.0, "ema_long_threshold": 1.004, "ema_short_threshold": 0.996, "ema_dead_zone_pct": 0.004, "excluded_hours": [0, 1, 2, 3, 4, 5]}, "event": "simulator.initialized", "timestamp": "2025-12-07T16:45:57.950691Z"}
+{"symbols": 2, "rows": 13220, "event": "simulator.starting", "timestamp": "2025-12-07T16:45:57.951104Z"}
+{"date": "2024-05-10", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.952779Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8694631446413474, "strength": 0.8694631446413474, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.960608Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8694631446413474, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.960630Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11526855243363927, "strength": 0.8847314475663607, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.962125Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8847314475663607, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.962142Z"}
+{"date": "2024-05-10", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:57.985878Z"}
+{"date": "2024-05-11", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:57.985914Z"}
+{"symbol": "ETH/USDT", "adx": 14.495894949334286, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993310Z"}
+{"symbol": "BTC/USDT", "adx": 15.58475662437421, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993349Z"}
+{"symbol": "BTC/USDT", "adx": 14.655305808219088, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993432Z"}
+{"symbol": "ETH/USDT", "adx": 12.374498580036477, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993463Z"}
+{"symbol": "ETH/USDT", "adx": 11.401886202512097, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993544Z"}
+{"symbol": "BTC/USDT", "adx": 14.320726525717108, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993572Z"}
+{"symbol": "BTC/USDT", "adx": 14.79277607826869, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993655Z"}
+{"symbol": "ETH/USDT", "adx": 11.406673058701383, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993685Z"}
+{"symbol": "ETH/USDT", "adx": 12.265720990684505, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993764Z"}
+{"symbol": "BTC/USDT", "adx": 13.745448375418416, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993792Z"}
+{"symbol": "BTC/USDT", "adx": 12.558071077416033, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993875Z"}
+{"symbol": "ETH/USDT", "adx": 12.254806643137568, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993905Z"}
+{"symbol": "ETH/USDT", "adx": 12.182651956477244, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.993984Z"}
+{"symbol": "BTC/USDT", "adx": 11.938954251143343, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994013Z"}
+{"symbol": "BTC/USDT", "adx": 13.097126183112165, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994094Z"}
+{"symbol": "ETH/USDT", "adx": 13.393471869664392, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994122Z"}
+{"symbol": "BTC/USDT", "adx": 16.001766218514838, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994206Z"}
+{"symbol": "ETH/USDT", "adx": 16.329877814315196, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994234Z"}
+{"symbol": "ETH/USDT", "adx": 19.266283758966004, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994316Z"}
+{"symbol": "BTC/USDT", "adx": 17.820662027975324, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994344Z"}
+{"symbol": "BTC/USDT", "adx": 17.90250314257916, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994426Z"}
+{"symbol": "ETH/USDT", "adx": 20.546457326194, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994454Z"}
+{"symbol": "BTC/USDT", "adx": 18.623163304739883, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994536Z"}
+{"symbol": "ETH/USDT", "adx": 21.44175177154614, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994564Z"}
+{"symbol": "BTC/USDT", "adx": 20.26812656278298, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994647Z"}
+{"symbol": "ETH/USDT", "adx": 23.997468019617724, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994675Z"}
+{"symbol": "BTC/USDT", "adx": 24.56569395571865, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994755Z"}
+{"symbol": "ETH/USDT", "adx": 27.621053370218814, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994783Z"}
+{"symbol": "BTC/USDT", "adx": 28.97989150778423, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:57.994864Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.864766704557661, "strength": 0.864766704557661, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.996559Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.864766704557661, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.996581Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1307055854349676, "strength": 0.8692944145650324, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:57.999611Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8692944145650324, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:57.999628Z"}
+{"date": "2024-05-11", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.020217Z"}
+{"date": "2024-05-12", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.020251Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8740325438082638, "strength": 0.8740325438082638, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.029141Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8740325438082638, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.029167Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1402408805715768, "strength": 0.8597591194284232, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.030622Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597591194284232, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.030640Z"}
+{"date": "2024-05-12", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.053964Z"}
+{"date": "2024-05-13", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.054010Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12528330898433152, "strength": 0.8747166910156685, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.063188Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8747166910156685, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.063224Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8569085313123336, "strength": 0.8569085313123336, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.064712Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8569085313123336, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.064730Z"}
+{"date": "2024-05-13", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.086841Z"}
+{"date": "2024-05-14", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.086890Z"}
+{"symbol": "BTC/USDT", "adx": 29.640463853319783, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.094468Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8714744884554703, "strength": 0.8714744884554703, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.096380Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8714744884554703, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.096407Z"}
+{"symbol": "BTC/USDT", "adx": 28.960628108493335, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.096535Z"}
+{"symbol": "BTC/USDT", "adx": 28.321035205700273, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.098197Z"}
+{"symbol": "ETH/USDT", "adx": 28.84446722634826, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.099703Z"}
+{"symbol": "BTC/USDT", "adx": 27.220393646827585, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.099813Z"}
+{"symbol": "ETH/USDT", "adx": 28.450886552207603, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.101317Z"}
+{"symbol": "BTC/USDT", "adx": 24.6396271562866, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.101427Z"}
+{"symbol": "ETH/USDT", "adx": 28.701734583503367, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.103132Z"}
+{"symbol": "BTC/USDT", "adx": 22.925833650852855, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.103293Z"}
+{"symbol": "BTC/USDT", "adx": 22.629214578861205, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.105204Z"}
+{"date": "2024-05-14", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.123903Z"}
+{"date": "2024-05-15", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.123959Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8624700617641006, "strength": 0.8624700617641006, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.136795Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8624700617641006, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.136847Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11865495309056687, "strength": 0.8813450469094332, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.138501Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8813450469094332, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.138533Z"}
+{"date": "2024-05-15", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.178929Z"}
+{"date": "2024-05-16", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.179023Z"}
+{"symbol": "ETH/USDT", "adx": 22.78747855258879, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.189282Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13817032678482385, "strength": 0.8618296732151761, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.192759Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8618296732151761, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.192843Z"}
+{"symbol": "ETH/USDT", "adx": 21.86790716350023, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.193003Z"}
+{"date": "2024-05-16", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.209495Z"}
+{"date": "2024-05-17", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.209557Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8678662893335257, "strength": 0.8678662893335257, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.218926Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8678662893335257, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.218994Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11723595048366056, "strength": 0.8827640495163395, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.221938Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8827640495163395, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.222025Z"}
+{"date": "2024-05-17", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.243452Z"}
+{"date": "2024-05-18", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.243507Z"}
+{"symbol": "ETH/USDT", "adx": 29.0759947287335, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.251045Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18333900940052447, "strength": 0.8166609905994755, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.253104Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8166609905994755, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.253138Z"}
+{"symbol": "ETH/USDT", "adx": 29.65402288757509, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.253262Z"}
+{"date": "2024-05-18", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.267708Z"}
+{"date": "2024-05-19", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.267747Z"}
+{"symbol": "BTC/USDT", "adx": 27.953169389797985, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.275109Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8973279559047481, "strength": 0.8973279559047481, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.277032Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8973279559047481, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.277064Z"}
+{"symbol": "ETH/USDT", "adx": 29.15494050830247, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.278711Z"}
+{"symbol": "BTC/USDT", "adx": 27.843929039214412, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.278755Z"}
+{"symbol": "ETH/USDT", "adx": 25.15753613953834, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.281761Z"}
+{"symbol": "BTC/USDT", "adx": 27.635190751054072, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.281832Z"}
+{"symbol": "ETH/USDT", "adx": 21.34838508167126, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.283647Z"}
+{"symbol": "BTC/USDT", "adx": 28.114762094974065, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.283705Z"}
+{"symbol": "BTC/USDT", "adx": 28.844099625653964, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.283826Z"}
+{"symbol": "ETH/USDT", "adx": 17.67155331744692, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.286228Z"}
+{"symbol": "BTC/USDT", "adx": 29.41524151352771, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.286384Z"}
+{"symbol": "ETH/USDT", "adx": 14.833313899058114, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.289730Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18245290009445364, "strength": 0.8175470999055463, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.292615Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8175470999055463, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.292650Z"}
+{"symbol": "ETH/USDT", "adx": 13.082149879741952, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.292726Z"}
+{"symbol": "ETH/USDT", "adx": 13.637755671666113, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.294462Z"}
+{"symbol": "ETH/USDT", "adx": 15.009483248072456, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.294573Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.21664777121857978, "strength": 0.7833522287814202, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.296102Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7833522287814202, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.296123Z"}
+{"symbol": "ETH/USDT", "adx": 14.456159069090889, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.296237Z"}
+{"symbol": "ETH/USDT", "adx": 15.649244061265888, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.299097Z"}
+{"symbol": "ETH/USDT", "adx": 16.157948284952372, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.300948Z"}
+{"symbol": "BTC/USDT", "adx": 28.19044179046787, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.302493Z"}
+{"symbol": "ETH/USDT", "adx": 17.24661552009185, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.302604Z"}
+{"symbol": "BTC/USDT", "adx": 26.503555684271088, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.304055Z"}
+{"symbol": "ETH/USDT", "adx": 17.81314725875053, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.304155Z"}
+{"symbol": "BTC/USDT", "adx": 24.810066677058995, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.305621Z"}
+{"symbol": "ETH/USDT", "adx": 19.005145778756287, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.305723Z"}
+{"symbol": "BTC/USDT", "adx": 24.491426147541528, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.305776Z"}
+{"symbol": "BTC/USDT", "adx": 24.34392773951176, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.305870Z"}
+{"symbol": "ETH/USDT", "adx": 21.080727174105164, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.305902Z"}
+{"symbol": "ETH/USDT", "adx": 24.181305694726763, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.305984Z"}
+{"symbol": "BTC/USDT", "adx": 25.74548132876193, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.306013Z"}
+{"symbol": "ETH/USDT", "adx": 27.83657159431518, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.306097Z"}
+{"symbol": "BTC/USDT", "adx": 27.3608503730354, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.306128Z"}
+{"symbol": "BTC/USDT", "adx": 29.479379729255893, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.306207Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9018793376207, "strength": 0.9018793376207, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.307723Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9018793376207, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.307743Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1761254031165702, "strength": 0.8238745968834298, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.310687Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8238745968834298, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.310704Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18057777939073053, "strength": 0.8194222206092695, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.315129Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8194222206092695, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.315151Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.896932071241264, "strength": 0.896932071241264, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.322491Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.896932071241264, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.322514Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.16693456704388326, "strength": 0.8330654329561167, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.323999Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8330654329561167, "daily_trades": 8, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.324020Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.17687705985403632, "strength": 0.8231229401459637, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.326986Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8231229401459637, "daily_trades": 9, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.327005Z"}
+{"symbol": "ETH/USDT", "adx": 28.984563182627728, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.331440Z"}
+{"symbol": "ETH/USDT", "adx": 27.32640454278985, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.335985Z"}
+{"date": "2024-05-19", "trades": 9, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.349980Z"}
+{"date": "2024-05-20", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.350011Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8822923801548038, "strength": 0.8822923801548038, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.358918Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8822923801548038, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.358945Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13448191266717305, "strength": 0.865518087332827, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.360413Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.865518087332827, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.360431Z"}
+{"date": "2024-05-20", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.385357Z"}
+{"date": "2024-05-21", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.385387Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.08152936607449288, "strength": 0.9184706339255071, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.394464Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9184706339255071, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.394494Z"}
+{"symbol": "ETH/USDT", "adx": 15.885845761146657, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.394542Z"}
+{"symbol": "ETH/USDT", "adx": 13.521348067902242, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.394641Z"}
+{"date": "2024-05-21", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.408929Z"}
+{"date": "2024-05-22", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.408944Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09406591437912747, "strength": 0.9059340856208725, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.417943Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9059340856208725, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.417969Z"}
+{"symbol": "ETH/USDT", "adx": 26.762196977332042, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.418012Z"}
+{"date": "2024-05-22", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.432440Z"}
+{"date": "2024-05-23", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.432463Z"}
+{"symbol": "BTC/USDT", "adx": 26.0312629550447, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.439767Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8626453269395994, "strength": 0.8626453269395994, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.441536Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8626453269395994, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.441556Z"}
+{"symbol": "BTC/USDT", "adx": 26.66353838520383, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.443126Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.07478743801458013, "strength": 0.9252125619854199, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.446488Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9252125619854199, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.446522Z"}
+{"date": "2024-05-23", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.465415Z"}
+{"date": "2024-05-24", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.465446Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8886068225730873, "strength": 0.8886068225730873, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.474422Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8886068225730873, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.474448Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14022008309256886, "strength": 0.8597799169074312, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.475921Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597799169074312, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.475939Z"}
+{"date": "2024-05-24", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.495284Z"}
+{"date": "2024-05-25", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.495328Z"}
+{"symbol": "ETH/USDT", "adx": 12.695033336759051, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.502705Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.07061729777952963, "strength": 0.9293827022204704, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.504549Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9293827022204704, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.504583Z"}
+{"symbol": "ETH/USDT", "adx": 9.956384583255828, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.504703Z"}
+{"symbol": "ETH/USDT", "adx": 8.062041081171728, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.506516Z"}
+{"date": "2024-05-25", "trades": 1, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.521161Z"}
+{"date": "2024-05-26", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.521203Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06741267428555849, "strength": 0.9325873257144415, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.530989Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9325873257144415, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.531048Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8744425132876005, "strength": 0.8744425132876005, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.532751Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8744425132876005, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.532781Z"}
+{"date": "2024-05-26", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.549530Z"}
+{"date": "2024-05-27", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.549569Z"}
+{"symbol": "ETH/USDT", "adx": 22.643889407463934, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557118Z"}
+{"symbol": "BTC/USDT", "adx": 21.892538074424472, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557190Z"}
+{"symbol": "ETH/USDT", "adx": 20.896663106997686, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557283Z"}
+{"symbol": "BTC/USDT", "adx": 22.745684851827956, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557316Z"}
+{"symbol": "BTC/USDT", "adx": 24.58436496211228, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557400Z"}
+{"symbol": "ETH/USDT", "adx": 20.80315061632863, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557430Z"}
+{"symbol": "ETH/USDT", "adx": 21.998387524918744, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557515Z"}
+{"symbol": "BTC/USDT", "adx": 27.26080457682779, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557545Z"}
+{"symbol": "ETH/USDT", "adx": 24.265399826820637, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557629Z"}
+{"symbol": "BTC/USDT", "adx": 28.617813072467534, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557658Z"}
+{"symbol": "ETH/USDT", "adx": 27.44510677034449, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.557767Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09067860352374953, "strength": 0.9093213964762504, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.559980Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9093213964762504, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.560019Z"}
+{"symbol": "ETH/USDT", "adx": 28.76834906941133, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.562820Z"}
+{"symbol": "ETH/USDT", "adx": 29.76582187471492, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.563400Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8765428143657531, "strength": 0.8765428143657531, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.572892Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8765428143657531, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.572999Z"}
+{"date": "2024-05-27", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.600508Z"}
+{"date": "2024-05-28", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.600615Z"}
+{"symbol": "ETH/USDT", "adx": 21.62516935872625, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.609804Z"}
+{"symbol": "BTC/USDT", "adx": 25.118761130560014, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.609884Z"}
+{"symbol": "ETH/USDT", "adx": 22.836402735108823, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.609974Z"}
+{"symbol": "BTC/USDT", "adx": 26.69458021093386, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610007Z"}
+{"symbol": "ETH/USDT", "adx": 22.410712050671748, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610178Z"}
+{"symbol": "BTC/USDT", "adx": 27.11327764116697, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610290Z"}
+{"symbol": "ETH/USDT", "adx": 22.10814897583546, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610515Z"}
+{"symbol": "BTC/USDT", "adx": 26.691559888670373, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610586Z"}
+{"symbol": "ETH/USDT", "adx": 21.41965768137862, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610812Z"}
+{"symbol": "BTC/USDT", "adx": 25.547762243999696, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.610953Z"}
+{"symbol": "ETH/USDT", "adx": 21.555012054141176, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.611294Z"}
+{"symbol": "BTC/USDT", "adx": 25.38293600590186, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.611388Z"}
+{"symbol": "ETH/USDT", "adx": 21.38000944793412, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.611600Z"}
+{"symbol": "BTC/USDT", "adx": 25.64667199662579, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.611677Z"}
+{"symbol": "ETH/USDT", "adx": 21.11957778506999, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.611872Z"}
+{"symbol": "BTC/USDT", "adx": 25.69085373108182, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.611945Z"}
+{"symbol": "ETH/USDT", "adx": 21.697683005953706, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.612140Z"}
+{"symbol": "BTC/USDT", "adx": 26.397927269604814, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.612213Z"}
+{"symbol": "ETH/USDT", "adx": 23.874546321818997, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.612400Z"}
+{"symbol": "BTC/USDT", "adx": 29.31356886239804, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.612472Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13229874650293758, "strength": 0.8677012534970624, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.616766Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8677012534970624, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.616867Z"}
+{"symbol": "ETH/USDT", "adx": 26.98512136940972, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.616985Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8783787116074446, "strength": 0.8783787116074446, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.621137Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8783787116074446, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.621239Z"}
+{"date": "2024-05-28", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.651178Z"}
+{"date": "2024-05-29", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.651235Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9031723336012405, "strength": 0.9031723336012405, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.664137Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9031723336012405, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.664184Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14969632384841178, "strength": 0.8503036761515882, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.665760Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8503036761515882, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.665781Z"}
+{"date": "2024-05-29", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.683947Z"}
+{"date": "2024-05-30", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.684004Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8950939739417816, "strength": 0.8950939739417816, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.693459Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8950939739417816, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.693510Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12120756580039588, "strength": 0.8787924341996041, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.695095Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8787924341996041, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.695116Z"}
+{"date": "2024-05-30", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.723815Z"}
+{"date": "2024-05-31", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.723870Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09682057968128939, "strength": 0.9031794203187106, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.741155Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9031794203187106, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.741209Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9192215494173255, "strength": 0.9192215494173255, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.743750Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9192215494173255, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.743801Z"}
+{"symbol": "BTC/USDT", "adx": 27.762605478390174, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.746103Z"}
+{"symbol": "ETH/USDT", "adx": 26.796345630130197, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.749257Z"}
+{"date": "2024-05-31", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.774437Z"}
+{"date": "2024-06-01", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.774482Z"}
+{"symbol": "BTC/USDT", "adx": 26.177225736785687, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.781823Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9288418061083906, "strength": 0.9288418061083906, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.783654Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9288418061083906, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.783676Z"}
+{"symbol": "BTC/USDT", "adx": 25.305647193431412, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.785269Z"}
+{"symbol": "BTC/USDT", "adx": 24.087609510462745, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.786874Z"}
+{"symbol": "BTC/USDT", "adx": 23.09899485458137, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.788411Z"}
+{"symbol": "BTC/USDT", "adx": 20.608882052888863, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.788510Z"}
+{"symbol": "BTC/USDT", "adx": 19.29564994414623, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.790044Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9282828803149517, "strength": 0.9282828803149517, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.792991Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9282828803149517, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.793017Z"}
+{"symbol": "BTC/USDT", "adx": 18.16093958998635, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.793062Z"}
+{"symbol": "BTC/USDT", "adx": 17.66801144415693, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.793163Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9218250637948954, "strength": 0.9218250637948954, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.796133Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9218250637948954, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.796151Z"}
+{"symbol": "BTC/USDT", "adx": 18.75378102049232, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.796192Z"}
+{"symbol": "BTC/USDT", "adx": 19.533599166801476, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.797700Z"}
+{"symbol": "BTC/USDT", "adx": 20.094455551178555, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.799207Z"}
+{"symbol": "BTC/USDT", "adx": 19.354607751006405, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.799303Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9058385042297293, "strength": 0.9058385042297293, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.800792Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9058385042297293, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.800824Z"}
+{"symbol": "BTC/USDT", "adx": 19.04930330977334, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.800942Z"}
+{"symbol": "BTC/USDT", "adx": 22.482893944345754, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.802657Z"}
+{"symbol": "BTC/USDT", "adx": 25.134300959164904, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.805750Z"}
+{"symbol": "BTC/USDT", "adx": 26.69201040475841, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.805856Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8943107169343354, "strength": 0.8943107169343354, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.807354Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8943107169343354, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.807372Z"}
+{"symbol": "BTC/USDT", "adx": 28.56891584951357, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.807481Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.19493623425500506, "strength": 0.8050637657449949, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.811895Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8050637657449949, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.811920Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1816044802456612, "strength": 0.8183955197543388, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.821429Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8183955197543388, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.821469Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8964249654098966, "strength": 0.8964249654098966, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.823272Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8964249654098966, "daily_trades": 8, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.823294Z"}
+{"symbol": "BTC/USDT", "adx": 27.424255493376684, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.827890Z"}
+{"symbol": "BTC/USDT", "adx": 24.206830190026803, "threshold": 30.0, "event": "single_agent.regime_filter_reject", "timestamp": "2025-12-07T16:45:58.829444Z"}
+{"trades": 53, "final_equity": "698.24", "total_return": "-30.18%", "event": "simulator.completed", "timestamp": "2025-12-07T16:45:58.848465Z"}
+{"strategy": "Regime_ADX_30.0", "return_pct": -30.17591163164325, "trades": 53, "event": "comparison.completed", "timestamp": "2025-12-07T16:45:58.848551Z"}
+{"strategy": "Baseline_NoFilter", "event": "comparison.running", "timestamp": "2025-12-07T16:45:58.848566Z"}
+{"config": {"start_balance": 1000.0, "leverage": 20, "risk_per_trade": 0.009, "max_positions": 3, "max_trades_day": 12, "daily_stop_pct": -0.01, "max_open_risk_pct": 0.027, "sl_max_pct": 0.012, "atr_multiplier": 1.0, "tp_multiplier": 2.1, "be_trigger_r": 1.0, "be_offset_r": 0.15, "partial_trigger_r": 1.5, "partial_pct": 0.5, "trailing_distance_r": 1.0, "timeout_bars": 40, "commission": 0.0004, "slippage_pct": 0.0002, "random_seed": null, "rsi_oversold": 35.0, "rsi_overbought": 65.0, "volume_surge_mult": 1.5, "atr_min_pct": 0.5, "atr_max_pct": 3.0, "ema_long_threshold": 1.004, "ema_short_threshold": 0.996, "ema_dead_zone_pct": 0.004, "excluded_hours": [0, 1, 2, 3, 4, 5]}, "event": "simulator.initialized", "timestamp": "2025-12-07T16:45:58.848583Z"}
+{"symbols": 2, "rows": 13220, "event": "simulator.starting", "timestamp": "2025-12-07T16:45:58.848879Z"}
+{"date": "2024-05-10", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.850681Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8694631446413474, "strength": 0.8694631446413474, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.858721Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8694631446413474, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.858752Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11526855243363927, "strength": 0.8847314475663607, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.860343Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8847314475663607, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.860375Z"}
+{"date": "2024-05-10", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.884176Z"}
+{"date": "2024-05-11", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.884223Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8581745495100742, "strength": 0.8581745495100742, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.893464Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8581745495100742, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.893511Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12219868305211747, "strength": 0.8778013169478825, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.894997Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8778013169478825, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.895017Z"}
+{"date": "2024-05-11", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.921189Z"}
+{"date": "2024-05-12", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.921239Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8740325438082638, "strength": 0.8740325438082638, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.934260Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8740325438082638, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.934314Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1402408805715768, "strength": 0.8597591194284232, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.935923Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597591194284232, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.935945Z"}
+{"date": "2024-05-12", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.962665Z"}
+{"date": "2024-05-13", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.962716Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12528330898433152, "strength": 0.8747166910156685, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.972018Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8747166910156685, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.972053Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8569085313123336, "strength": 0.8569085313123336, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:58.973538Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8569085313123336, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:58.973556Z"}
+{"date": "2024-05-13", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:58.995788Z"}
+{"date": "2024-05-14", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:58.995816Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11568135644463291, "strength": 0.884318643555367, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.005229Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.884318643555367, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.005267Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8714744884554703, "strength": 0.8714744884554703, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.006845Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8714744884554703, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.006866Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13081555063168815, "strength": 0.8691844493683119, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.023499Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8691844493683119, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.023543Z"}
+{"date": "2024-05-14", "trades": 3, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.044849Z"}
+{"date": "2024-05-15", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.044886Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8624700617641006, "strength": 0.8624700617641006, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.054042Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8624700617641006, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.054072Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11865495309056687, "strength": 0.8813450469094332, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.055589Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8813450469094332, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.055607Z"}
+{"date": "2024-05-15", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.080005Z"}
+{"date": "2024-05-16", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.080036Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8595590393998856, "strength": 0.8595590393998856, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.088955Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8595590393998856, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.088982Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13817032678482385, "strength": 0.8618296732151761, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.090438Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8618296732151761, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.090455Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8477616254453457, "strength": 0.8477616254453457, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.091992Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8477616254453457, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.092011Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12498134396349168, "strength": 0.8750186560365083, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.093747Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8750186560365083, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.093778Z"}
+{"date": "2024-05-16", "trades": 4, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.108256Z"}
+{"date": "2024-05-17", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.108287Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8678662893335257, "strength": 0.8678662893335257, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.117605Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8678662893335257, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.117644Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.11723595048366056, "strength": 0.8827640495163395, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.119154Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8827640495163395, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.119173Z"}
+{"date": "2024-05-17", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.139289Z"}
+{"date": "2024-05-18", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.139318Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8885362177453977, "strength": 0.8885362177453977, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.148196Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8885362177453977, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.148223Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18333900940052447, "strength": 0.8166609905994755, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.149691Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8166609905994755, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.149708Z"}
+{"date": "2024-05-18", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.168786Z"}
+{"date": "2024-05-19", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.168832Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.20578174582456144, "strength": 0.7942182541754386, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.178106Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7942182541754386, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.178139Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8973279559047481, "strength": 0.8973279559047481, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.179689Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8973279559047481, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.179708Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18245290009445364, "strength": 0.8175470999055463, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.195951Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8175470999055463, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.195981Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9013424830156207, "strength": 0.9013424830156207, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.197450Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9013424830156207, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.197489Z"}
+{"date": "2024-05-19", "trades": 4, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.212887Z"}
+{"date": "2024-05-20", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.212915Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8822923801548038, "strength": 0.8822923801548038, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.222116Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8822923801548038, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.222151Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.13448191266717305, "strength": 0.865518087332827, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.223861Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.865518087332827, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.223882Z"}
+{"date": "2024-05-20", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.250144Z"}
+{"date": "2024-05-21", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.250194Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.08152936607449288, "strength": 0.9184706339255071, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.259269Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9184706339255071, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.259299Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9066359051094445, "strength": 0.9066359051094445, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.260764Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9066359051094445, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.260782Z"}
+{"date": "2024-05-21", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.282555Z"}
+{"date": "2024-05-22", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.282585Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09406591437912747, "strength": 0.9059340856208725, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.291494Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9059340856208725, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.291520Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8984705461125727, "strength": 0.8984705461125727, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.292973Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8984705461125727, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.292990Z"}
+{"date": "2024-05-22", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.314449Z"}
+{"date": "2024-05-23", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.314477Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.0821362078710649, "strength": 0.9178637921289351, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.323294Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9178637921289351, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.323318Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8626453269395994, "strength": 0.8626453269395994, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.324776Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8626453269395994, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.324794Z"}
+{"date": "2024-05-23", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.347037Z"}
+{"date": "2024-05-24", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.347073Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8886068225730873, "strength": 0.8886068225730873, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.356105Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8886068225730873, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.356134Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14022008309256886, "strength": 0.8597799169074312, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.357667Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8597799169074312, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.357685Z"}
+{"date": "2024-05-24", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.376468Z"}
+{"date": "2024-05-25", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.376497Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9229109836822521, "strength": 0.9229109836822521, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.385687Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9229109836822521, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.385714Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.07061729777952963, "strength": 0.9293827022204704, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.387194Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9293827022204704, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.387213Z"}
+{"date": "2024-05-25", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.403238Z"}
+{"date": "2024-05-26", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.403269Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06741267428555849, "strength": 0.9325873257144415, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.412359Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9325873257144415, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.412389Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8744425132876005, "strength": 0.8744425132876005, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.413926Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8744425132876005, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.413943Z"}
+{"date": "2024-05-26", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.429977Z"}
+{"date": "2024-05-27", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.430010Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8349322471298434, "strength": 0.8349322471298434, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.439513Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8349322471298434, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.439550Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.06712770953881, "strength": 0.93287229046119, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.441111Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.93287229046119, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.441131Z"}
+{"date": "2024-05-27", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.460308Z"}
+{"date": "2024-05-28", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.460344Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9095016768577708, "strength": 0.9095016768577708, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.469261Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9095016768577708, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.469289Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.20907961836781266, "strength": 0.7909203816321874, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.470880Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.7909203816321874, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.470902Z"}
+{"date": "2024-05-28", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.487018Z"}
+{"date": "2024-05-29", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.487050Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9031723336012405, "strength": 0.9031723336012405, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.496089Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9031723336012405, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.496117Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.14969632384841178, "strength": 0.8503036761515882, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.497614Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8503036761515882, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.497633Z"}
+{"date": "2024-05-29", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.515106Z"}
+{"date": "2024-05-30", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.515140Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8950939739417816, "strength": 0.8950939739417816, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.524263Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8950939739417816, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.524291Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.12120756580039588, "strength": 0.8787924341996041, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.525791Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8787924341996041, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.525812Z"}
+{"date": "2024-05-30", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.541707Z"}
+{"date": "2024-05-31", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.541735Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.09682057968128939, "strength": 0.9031794203187106, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.550602Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.9031794203187106, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.550627Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9192215494173255, "strength": 0.9192215494173255, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.552116Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9192215494173255, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.552134Z"}
+{"date": "2024-05-31", "trades": 2, "pnl": 0.0, "event": "single_agent.day_end", "timestamp": "2025-12-07T16:45:59.575112Z"}
+{"date": "2024-06-01", "event": "single_agent.day_start", "timestamp": "2025-12-07T16:45:59.575145Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18560819012463778, "strength": 0.8143918098753622, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.584229Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8143918098753622, "daily_trades": 1, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.584253Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9288418061083906, "strength": 0.9288418061083906, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.585719Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9288418061083906, "daily_trades": 2, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.585739Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9282828803149517, "strength": 0.9282828803149517, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.603540Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9282828803149517, "daily_trades": 3, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.603583Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.18478490501719613, "strength": 0.8152150949828039, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.605118Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8152150949828039, "daily_trades": 4, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.605138Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9218250637948954, "strength": 0.9218250637948954, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.609816Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9218250637948954, "daily_trades": 5, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.609853Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.1686952337765845, "strength": 0.8313047662234155, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.611442Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.8313047662234155, "daily_trades": 6, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.611471Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.9058385042297293, "strength": 0.9058385042297293, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.620282Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.9058385042297293, "daily_trades": 7, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.620308Z"}
+{"symbol": "BTC/USDT", "side": "short", "alpha_score": 0.17780673708336903, "strength": 0.822193262916631, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.629181Z"}
+{"symbol": "BTC/USDT", "side": "short", "strength": 0.822193262916631, "daily_trades": 8, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.629212Z"}
+{"symbol": "ETH/USDT", "side": "long", "alpha_score": 0.8943107169343354, "strength": 0.8943107169343354, "event": "alpha_strategy.signal", "timestamp": "2025-12-07T16:45:59.632202Z"}
+{"symbol": "ETH/USDT", "side": "long", "strength": 0.8943107169343354, "daily_trades": 9, "event": "single_agent.entry_signal", "timestamp": "2025-12-07T16:45:59.632221Z"}
+{"trades": 58, "final_equity": "721.84", "total_return": "-27.82%", "event": "simulator.completed", "timestamp": "2025-12-07T16:45:59.658833Z"}
+{"strategy": "Baseline_NoFilter", "return_pct": -27.815726919831445, "trades": 58, "event": "comparison.completed", "timestamp": "2025-12-07T16:45:59.658929Z"}
+Strategy Comparison Summary
+========================================
+
+Regime_ADX_20.0:
+  Total Return: -29.55%
+  Sharpe Ratio: -0.71
+  Win Rate: 32.8%
+  Max Drawdown: -29.76%
+  Trades: 58
+
+Regime_ADX_25.0:
+  Total Return: -27.98%
+  Sharpe Ratio: -0.75
+  Win Rate: 35.7%
+  Max Drawdown: -28.38%
+  Trades: 56
+
+Regime_ADX_30.0:
+  Total Return: -30.18%
+  Sharpe Ratio: -0.96
+  Win Rate: 34.0%
+  Max Drawdown: -30.55%
+  Trades: 53
+
+Baseline_NoFilter:
+  Total Return: -27.82%
+  Sharpe Ratio: -0.62
+  Win Rate: 32.8%
+  Max Drawdown: -28.03%
+  Trades: 58
+
+========================================
+BEST: Baseline_NoFilter (total_return_pct: -27.82)

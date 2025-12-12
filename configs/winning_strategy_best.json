@@ -1,0 +1,29 @@
+{
+    "strategy_id": "best_864",
+    "strategy_name": "Factory Winner #864 (Best Config)",
+    "description": "Best performing strategy from Factory search - validated on 365-day backtest",
+    "created_at": "2025-12-09T14:33:00Z",
+    "indicators": {
+        "ema_fast": 15,
+        "ema_slow": 60,
+        "rsi_period": 14,
+        "rsi_overbought": 75,
+        "rsi_oversold": 25,
+        "bb_period": 25,
+        "bb_std": 2.0
+    },
+    "performance": {
+        "expected_alpha_pct": 2.61,
+        "max_drawdown_pct": -5.68,
+        "win_rate_pct": 80.8,
+        "sharpe_ratio": 1.42
+    },
+    "trading_params": {
+        "leverage": 20,
+        "risk_per_trade_pct": 0.9,
+        "max_positions": 3,
+        "max_trades_per_day": 12,
+        "daily_stop_loss_pct": -1.0
+    },
+    "notes": "This config is locked for production. Do not modify without extensive backtesting."
+}

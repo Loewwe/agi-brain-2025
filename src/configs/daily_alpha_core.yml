@@ -1,0 +1,13 @@
+# Daily Alpha Core (A_CORE) Configuration
+# Criteria for high-frequency, stable strategies.
+
+min_avg_daily_return: 0.007  # 0.7% per day
+min_pf: 1.5
+min_win_rate: 0.58
+max_drawdown: 0.25
+min_total_trades: 150
+min_avg_daily_trades: 1.0
+
+# Portfolio Targets
+target_daily_return: 0.02
+target_daily_trades: 5

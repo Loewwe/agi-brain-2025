@@ -1,0 +1,28 @@
+[
+    {
+        "id": "trade_3",
+        "symbol": "SOLUSDT",
+        "side": "long",
+        "entry_price": 100.0,
+        "exit_price": 80.0,
+        "size": 10.0,
+        "realized_pnl": -200.0,
+        "realized_pnl_percent": -20.0,
+        "opened_at": "2025-12-03T09:00:00",
+        "closed_at": "2025-12-03T10:00:00",
+        "reason": "FOMO"
+    },
+    {
+        "id": "trade_4",
+        "symbol": "DOGEUSDT",
+        "side": "short",
+        "entry_price": 0.1,
+        "exit_price": 0.15,
+        "size": 10000.0,
+        "realized_pnl": -500.0,
+        "realized_pnl_percent": -50.0,
+        "opened_at": "2025-12-03T11:00:00",
+        "closed_at": "2025-12-03T12:00:00",
+        "reason": "YOLO"
+    }
+]

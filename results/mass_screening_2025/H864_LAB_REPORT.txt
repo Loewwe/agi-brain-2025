@@ -1,0 +1,1 @@
+{'total_events': 42, 'win_rate': 0.5952380952380952, 'profit_factor': 1.158409194653757, 'avg_return': 0.0004292237976501004, 'sharpe_ratio': np.float64(0.48142557912443956), 'max_drawdown': 0.04091139562120263, 'cagr': 0.019082376211382313, 'daily_frequency': 0.12173913043478261}

@@ -1,0 +1,21 @@
+symbol: "ETH/USDT"
+timeframe: "5m"
+
+target:
+  type: "vol_expansion"
+  horizon_bars: 12
+  vol_window: 48
+  vol_factor: 1.5
+
+feature_set: "extended"
+model_type: "lightgbm"
+
+train_period:
+  start: "2024-01-01"
+  end: "2024-03-31"
+
+test_period:
+  start: "2024-04-01"
+  end: "2024-04-30"
+
+random_state: 42

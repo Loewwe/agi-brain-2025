@@ -1,0 +1,279 @@
+/opt/anaconda3/lib/python3.13/site-packages/pytest_asyncio/plugin.py:252: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform darwin -- Python 3.13.5, pytest-8.3.4, pluggy-1.5.0
+rootdir: /Users/ongarkurmangaliyev/projects/alien-agi/agi_brain
+configfile: pyproject.toml
+plugins: langsmith-0.4.47, asyncio-1.2.0, hypothesis-6.139.2, anyio-4.7.0
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 3 items
+
+tests/test_integration/test_scenarios.py 2025-12-04 18:00:28 [info     ] agi_brain.starting
+2025-12-04 18:00:28 [info     ] owner_profile.loaded           owner_id=owner_primary path=/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/configs/owner_profile.yaml
+DEBUG: Configs path: /Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/configs
+DEBUG: Tools config exists: True
+2025-12-04 18:00:28 [info     ] tools_registry.initialized     definitions_loaded=10
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=world.snapshot risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=world.snapshot
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=memory.search risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=memory.search
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=memory.write risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=memory.write
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=trading.fetch_history risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=trading.fetch_history
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=trading.fetch_positions risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=trading.fetch_positions
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=trading.fetch_config risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=trading.fetch_config
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=trading.analyze_risk risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=trading.analyze_risk
+2025-12-04 18:00:28 [info     ] tools_registry.tool_registered name=reports.build_status_report risk_level=low
+2025-12-04 18:00:28 [debug    ] base_tools.registered          tool=reports.build_status_report
+DEBUG: Main registry ID: 4459767056
+DEBUG: Tools registered: ['world.snapshot', 'memory.search', 'memory.write', 'trading.fetch_history', 'trading.fetch_positions', 'trading.fetch_config', 'trading.analyze_risk', 'reports.build_status_report']
+2025-12-04 18:00:28 [info     ] semantic_memory.initialized    db_url=None embedding_model=text-embedding-3-small in_memory=True
+2025-12-04 18:00:28 [info     ] trading_adapter.stub_initialized scenario=normal
+2025-12-04 18:00:28 [info     ] web_fetcher.initialized        rate_limit_minute=30 whitelist_domains=19
+2025-12-04 18:00:28 [info     ] acl.initialized                clients=3 rules=0
+2025-12-04 18:00:28 [info     ] audit.system_start             action=initialize client_id=system event_id=audit_b89bb11600aa resource=audit_logger success=True
+2025-12-04 18:00:28 [info     ] brain.initialized              mode=L0 model=gpt-4o-mini tools_count=8
+2025-12-04 18:00:28 [info     ] executor.initialized           max_autonomy=1 tools_available=8
+2025-12-04 18:00:28 [info     ] agi_brain.started
+2025-12-04 18:00:28 [info     ] audit.plan_created             action=request client_id=owner event_id=audit_da89c2387e30 resource=orchestration success=True
+Traceback (most recent call last):
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/api/orchestrate.py", line 112, in orchestrate
+    goal_analysis = await brain.understand_goal(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/planning/brain.py", line 201, in understand_goal
+    analysis = await self._analyze_goal_with_llm(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        goal, context_hint, snapshot, available_tools, knowledge_section
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/planning/brain.py", line 349, in _analyze_goal_with_llm
+    response = await self._client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<48 lines>...
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/_base_client.py", line 1594, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}}
+DEBUG: Orchestrate error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}}
+2025-12-04 18:00:29 [info     ] audit.plan_failed              action=execute client_id=owner event_id=audit_16020e1bdf1a resource=orchestration success=False
+F2025-12-04 18:00:29 [info     ] agi_brain.stopping
+2025-12-04 18:00:29 [info     ] agi_brain.starting
+2025-12-04 18:00:29 [info     ] owner_profile.loaded           owner_id=owner_primary path=/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/configs/owner_profile.yaml
+DEBUG: Configs path: /Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/configs
+DEBUG: Tools config exists: True
+2025-12-04 18:00:29 [info     ] tools_registry.initialized     definitions_loaded=10
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=world.snapshot risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=world.snapshot
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=memory.search risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=memory.search
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=memory.write risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=memory.write
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.fetch_history risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.fetch_history
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.fetch_positions risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.fetch_positions
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.fetch_config risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.fetch_config
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.analyze_risk risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.analyze_risk
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=reports.build_status_report risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=reports.build_status_report
+DEBUG: Main registry ID: 4481461584
+DEBUG: Tools registered: ['world.snapshot', 'memory.search', 'memory.write', 'trading.fetch_history', 'trading.fetch_positions', 'trading.fetch_config', 'trading.analyze_risk', 'reports.build_status_report']
+2025-12-04 18:00:29 [info     ] semantic_memory.initialized    db_url=None embedding_model=text-embedding-3-small in_memory=True
+2025-12-04 18:00:29 [info     ] trading_adapter.stub_initialized scenario=normal
+2025-12-04 18:00:29 [info     ] web_fetcher.initialized        rate_limit_minute=30 whitelist_domains=19
+2025-12-04 18:00:29 [info     ] acl.initialized                clients=3 rules=0
+2025-12-04 18:00:29 [info     ] audit.system_start             action=initialize client_id=system event_id=audit_eb1a5aee2b8f resource=audit_logger success=True
+2025-12-04 18:00:29 [info     ] brain.initialized              mode=L0 model=gpt-4o-mini tools_count=8
+2025-12-04 18:00:29 [info     ] executor.initialized           max_autonomy=1 tools_available=8
+2025-12-04 18:00:29 [info     ] agi_brain.started
+2025-12-04 18:00:29 [info     ] audit.plan_created             action=request client_id=owner event_id=audit_d5a92947f384 resource=orchestration success=True
+Traceback (most recent call last):
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/api/orchestrate.py", line 112, in orchestrate
+    goal_analysis = await brain.understand_goal(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/planning/brain.py", line 201, in understand_goal
+    analysis = await self._analyze_goal_with_llm(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        goal, context_hint, snapshot, available_tools, knowledge_section
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/planning/brain.py", line 349, in _analyze_goal_with_llm
+    response = await self._client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<48 lines>...
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/_base_client.py", line 1594, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}}
+DEBUG: Orchestrate error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}}
+2025-12-04 18:00:29 [info     ] audit.plan_failed              action=execute client_id=owner event_id=audit_4749059f0032 resource=orchestration success=False
+F2025-12-04 18:00:29 [info     ] agi_brain.stopping
+2025-12-04 18:00:29 [info     ] agi_brain.starting
+2025-12-04 18:00:29 [info     ] owner_profile.loaded           owner_id=owner_primary path=/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/configs/owner_profile.yaml
+DEBUG: Configs path: /Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/configs
+DEBUG: Tools config exists: True
+2025-12-04 18:00:29 [info     ] tools_registry.initialized     definitions_loaded=10
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=world.snapshot risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=world.snapshot
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=memory.search risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=memory.search
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=memory.write risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=memory.write
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.fetch_history risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.fetch_history
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.fetch_positions risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.fetch_positions
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.fetch_config risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.fetch_config
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=trading.analyze_risk risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=trading.analyze_risk
+2025-12-04 18:00:29 [info     ] tools_registry.tool_registered name=reports.build_status_report risk_level=low
+2025-12-04 18:00:29 [debug    ] base_tools.registered          tool=reports.build_status_report
+DEBUG: Main registry ID: 4481453904
+DEBUG: Tools registered: ['world.snapshot', 'memory.search', 'memory.write', 'trading.fetch_history', 'trading.fetch_positions', 'trading.fetch_config', 'trading.analyze_risk', 'reports.build_status_report']
+2025-12-04 18:00:29 [info     ] semantic_memory.initialized    db_url=None embedding_model=text-embedding-3-small in_memory=True
+2025-12-04 18:00:29 [info     ] trading_adapter.stub_initialized scenario=normal
+2025-12-04 18:00:29 [info     ] web_fetcher.initialized        rate_limit_minute=30 whitelist_domains=19
+2025-12-04 18:00:29 [info     ] acl.initialized                clients=3 rules=0
+2025-12-04 18:00:29 [info     ] audit.system_start             action=initialize client_id=system event_id=audit_fc7a5ee607e1 resource=audit_logger success=True
+2025-12-04 18:00:29 [info     ] brain.initialized              mode=L0 model=gpt-4o-mini tools_count=8
+2025-12-04 18:00:29 [info     ] executor.initialized           max_autonomy=1 tools_available=8
+2025-12-04 18:00:29 [info     ] agi_brain.started
+2025-12-04 18:00:29 [info     ] audit.plan_created             action=request client_id=owner event_id=audit_ee6bb8b50137 resource=orchestration success=True
+Traceback (most recent call last):
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/api/orchestrate.py", line 112, in orchestrate
+    goal_analysis = await brain.understand_goal(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/planning/brain.py", line 201, in understand_goal
+    analysis = await self._analyze_goal_with_llm(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        goal, context_hint, snapshot, available_tools, knowledge_section
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ongarkurmangaliyev/projects/alien-agi/agi_brain/src/planning/brain.py", line 349, in _analyze_goal_with_llm
+    response = await self._client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<48 lines>...
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/openai/_base_client.py", line 1594, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+DEBUG: Orchestrate error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-12-04 18:00:30 [info     ] audit.plan_failed              action=execute client_id=owner event_id=audit_94f2204c3dd0 resource=orchestration success=False
+F2025-12-04 18:00:30 [info     ] agi_brain.stopping
+
+
+=================================== FAILURES ===================================
+______________________ test_scenario_trading_risk_review _______________________
+
+client = <starlette.testclient.TestClient object at 0x109bb3380>
+
+    @pytest.mark.asyncio
+    async def test_scenario_trading_risk_review(client):
+        """
+        Scenario 1: Trading Risk Review
+        """
+        response = client.post("/v1/orchestrate", json={
+            "goal": "Разбери последние 7 дней трейдинга, оцени риск и предложи изменения UNSINKABLE.",
+            "client_id": "owner",
+            "dry_run": False
+        })
+    
+>       assert response.status_code == 200
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_integration/test_scenarios.py:21: AssertionError
+_______________________ test_scenario_agi_project_status _______________________
+
+client = <starlette.testclient.TestClient object at 0x109cd6990>
+
+    @pytest.mark.asyncio
+    async def test_scenario_agi_project_status(client):
+        """
+        Scenario 2: AGI-Project Status
+        """
+        response = client.post("/v1/orchestrate", json={
+            "goal": "Собери сводный статус AGI-проекта по логам/докам и сделай краткий отчёт.",
+            "client_id": "owner"
+        })
+    
+>       assert response.status_code == 200
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_integration/test_scenarios.py:41: AssertionError
+_______________________ test_scenario_code_docs_insight ________________________
+
+client = <starlette.testclient.TestClient object at 0x10b1d96d0>
+
+    @pytest.mark.asyncio
+    async def test_scenario_code_docs_insight(client):
+        """
+        Scenario 3: Code/Docs Insight
+        """
+        response = client.post("/v1/orchestrate", json={
+            "goal": "Объясни, как устроен AGI-Brain v1 и какие у него ограничения по безопасности.",
+            "client_id": "owner"
+        })
+    
+>       assert response.status_code == 200
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_integration/test_scenarios.py:59: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_integration/test_scenarios.py::test_scenario_trading_risk_review
+FAILED tests/test_integration/test_scenarios.py::test_scenario_agi_project_status
+FAILED tests/test_integration/test_scenarios.py::test_scenario_code_docs_insight
+============================== 3 failed in 1.79s ===============================

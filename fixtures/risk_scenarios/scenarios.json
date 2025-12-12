@@ -1,0 +1,524 @@
+{
+    "scenarios": [
+        {
+            "id": "A1",
+            "name": "Good day, low risk",
+            "description": "+3% за день, DD маленькая, позиций мало",
+            "state": {
+                "equity_usd": "7000",
+                "available_balance_usd": "5000",
+                "pnl_today_usd": "210",
+                "pnl_today_pct": 3.0,
+                "unrealized_pnl_usd": "50",
+                "unrealized_pnl_pct": 0.7,
+                "drawdown_today_pct": -0.2,
+                "drawdown_from_peak_pct": -0.5,
+                "open_positions_count": 2,
+                "total_exposure_pct": 35.0,
+                "avg_position_pnl_pct": 1.5,
+                "max_position_exposure_pct": 20.0,
+                "trades_today": 5,
+                "wins_today": 4,
+                "losses_today": 1,
+                "consecutive_losses": 0,
+                "consecutive_wins": 3,
+                "win_rate_7d": 0.65,
+                "volatility_regime": "normal",
+                "stress_flags": []
+            },
+            "expected": {
+                "allowed_modes": [
+                    "normal",
+                    "aggressive"
+                ],
+                "allowed_actions": [
+                    "keep",
+                    "allow_more"
+                ],
+                "forbidden_modes": [
+                    "defensive"
+                ],
+                "forbidden_actions": [
+                    "pause_trading"
+                ]
+            }
+        },
+        {
+            "id": "A2",
+            "name": "Bad streak, near DD limit",
+            "description": "-0.8% за день, 3 убыточных подряд, DD_today ≈ -1%",
+            "state": {
+                "equity_usd": "6944",
+                "available_balance_usd": "4000",
+                "pnl_today_usd": "-56",
+                "pnl_today_pct": -0.8,
+                "unrealized_pnl_usd": "-30",
+                "unrealized_pnl_pct": -0.4,
+                "drawdown_today_pct": -0.9,
+                "drawdown_from_peak_pct": -2.5,
+                "open_positions_count": 3,
+                "total_exposure_pct": 55.0,
+                "avg_position_pnl_pct": -0.8,
+                "max_position_exposure_pct": 25.0,
+                "trades_today": 6,
+                "wins_today": 2,
+                "losses_today": 4,
+                "consecutive_losses": 3,
+                "consecutive_wins": 0,
+                "win_rate_7d": 0.45,
+                "volatility_regime": "normal",
+                "stress_flags": [
+                    "consecutive_losses"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "defensive"
+                ],
+                "allowed_actions": [
+                    "pause_trading",
+                    "reduce_size"
+                ],
+                "forbidden_modes": [
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "allow_more"
+                ]
+            }
+        },
+        {
+            "id": "A3",
+            "name": "Critical drawdown",
+            "description": "-3% за день, DD_from_peak -7%, много открытых позиций",
+            "state": {
+                "equity_usd": "6510",
+                "available_balance_usd": "2000",
+                "pnl_today_usd": "-210",
+                "pnl_today_pct": -3.0,
+                "unrealized_pnl_usd": "-200",
+                "unrealized_pnl_pct": -3.0,
+                "drawdown_today_pct": -3.5,
+                "drawdown_from_peak_pct": -7.0,
+                "open_positions_count": 5,
+                "total_exposure_pct": 80.0,
+                "avg_position_pnl_pct": -2.0,
+                "max_position_exposure_pct": 25.0,
+                "trades_today": 8,
+                "wins_today": 1,
+                "losses_today": 7,
+                "consecutive_losses": 5,
+                "consecutive_wins": 0,
+                "win_rate_7d": 0.35,
+                "volatility_regime": "high",
+                "stress_flags": [
+                    "consecutive_losses",
+                    "max_daily_loss_hit",
+                    "high_volatility"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "defensive"
+                ],
+                "allowed_actions": [
+                    "pause_trading"
+                ],
+                "forbidden_modes": [
+                    "normal",
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "keep",
+                    "allow_more",
+                    "reduce_size"
+                ]
+            }
+        },
+        {
+            "id": "A4",
+            "name": "Winning but risky",
+            "description": "+5% за день, но близко к лимиту DD и экспозиция высокая",
+            "state": {
+                "equity_usd": "7350",
+                "available_balance_usd": "3000",
+                "pnl_today_usd": "350",
+                "pnl_today_pct": 5.0,
+                "unrealized_pnl_usd": "150",
+                "unrealized_pnl_pct": 2.0,
+                "drawdown_today_pct": -0.3,
+                "drawdown_from_peak_pct": -0.5,
+                "open_positions_count": 4,
+                "total_exposure_pct": 75.0,
+                "avg_position_pnl_pct": 2.5,
+                "max_position_exposure_pct": 30.0,
+                "trades_today": 7,
+                "wins_today": 6,
+                "losses_today": 1,
+                "consecutive_losses": 0,
+                "consecutive_wins": 4,
+                "win_rate_7d": 0.70,
+                "volatility_regime": "normal",
+                "stress_flags": [
+                    "overexposed_single"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "normal",
+                    "defensive"
+                ],
+                "allowed_actions": [
+                    "reduce_size",
+                    "keep"
+                ],
+                "forbidden_modes": [],
+                "forbidden_actions": [
+                    "pause_trading"
+                ]
+            }
+        },
+        {
+            "id": "A5",
+            "name": "Flat day, good discipline",
+            "description": "0% день, мало сделок, хорошая дисциплина",
+            "state": {
+                "equity_usd": "7000",
+                "available_balance_usd": "5500",
+                "pnl_today_usd": "0",
+                "pnl_today_pct": 0.0,
+                "unrealized_pnl_usd": "20",
+                "unrealized_pnl_pct": 0.3,
+                "drawdown_today_pct": -0.1,
+                "drawdown_from_peak_pct": -1.0,
+                "open_positions_count": 1,
+                "total_exposure_pct": 20.0,
+                "avg_position_pnl_pct": 0.3,
+                "max_position_exposure_pct": 20.0,
+                "trades_today": 2,
+                "wins_today": 1,
+                "losses_today": 1,
+                "consecutive_losses": 0,
+                "consecutive_wins": 0,
+                "win_rate_7d": 0.55,
+                "volatility_regime": "calm",
+                "stress_flags": []
+            },
+            "expected": {
+                "allowed_modes": [
+                    "normal"
+                ],
+                "allowed_actions": [
+                    "keep"
+                ],
+                "forbidden_modes": [],
+                "forbidden_actions": [
+                    "pause_trading"
+                ]
+            }
+        },
+        {
+            "id": "A6",
+            "name": "Missing SL protection",
+            "description": "SL/TP частично отсутствуют",
+            "state": {
+                "equity_usd": "7000",
+                "available_balance_usd": "4500",
+                "pnl_today_usd": "50",
+                "pnl_today_pct": 0.7,
+                "unrealized_pnl_usd": "30",
+                "unrealized_pnl_pct": 0.4,
+                "drawdown_today_pct": -0.2,
+                "drawdown_from_peak_pct": -1.5,
+                "open_positions_count": 3,
+                "total_exposure_pct": 45.0,
+                "avg_position_pnl_pct": 0.5,
+                "max_position_exposure_pct": 20.0,
+                "trades_today": 4,
+                "wins_today": 3,
+                "losses_today": 1,
+                "consecutive_losses": 0,
+                "consecutive_wins": 2,
+                "win_rate_7d": 0.60,
+                "volatility_regime": "normal",
+                "stress_flags": [
+                    "sl_missing"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "defensive"
+                ],
+                "allowed_actions": [
+                    "pause_trading"
+                ],
+                "forbidden_modes": [
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "allow_more"
+                ]
+            }
+        },
+        {
+            "id": "A7",
+            "name": "High volatility market",
+            "description": "Высокая волатильность, +1% день",
+            "state": {
+                "equity_usd": "7070",
+                "available_balance_usd": "4000",
+                "pnl_today_usd": "70",
+                "pnl_today_pct": 1.0,
+                "unrealized_pnl_usd": "40",
+                "unrealized_pnl_pct": 0.6,
+                "drawdown_today_pct": -0.4,
+                "drawdown_from_peak_pct": -2.0,
+                "open_positions_count": 3,
+                "total_exposure_pct": 50.0,
+                "avg_position_pnl_pct": 0.8,
+                "max_position_exposure_pct": 20.0,
+                "trades_today": 5,
+                "wins_today": 3,
+                "losses_today": 2,
+                "consecutive_losses": 0,
+                "consecutive_wins": 1,
+                "win_rate_7d": 0.55,
+                "volatility_regime": "high",
+                "stress_flags": [
+                    "high_volatility"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "defensive",
+                    "normal"
+                ],
+                "allowed_actions": [
+                    "reduce_size",
+                    "keep"
+                ],
+                "forbidden_modes": [
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "allow_more"
+                ]
+            }
+        },
+        {
+            "id": "A8",
+            "name": "Calm market, small loss",
+            "description": "Спокойный рынок, -0.5% день",
+            "state": {
+                "equity_usd": "6965",
+                "available_balance_usd": "5000",
+                "pnl_today_usd": "-35",
+                "pnl_today_pct": -0.5,
+                "unrealized_pnl_usd": "-10",
+                "unrealized_pnl_pct": -0.1,
+                "drawdown_today_pct": -0.5,
+                "drawdown_from_peak_pct": -1.5,
+                "open_positions_count": 2,
+                "total_exposure_pct": 30.0,
+                "avg_position_pnl_pct": -0.2,
+                "max_position_exposure_pct": 15.0,
+                "trades_today": 3,
+                "wins_today": 1,
+                "losses_today": 2,
+                "consecutive_losses": 1,
+                "consecutive_wins": 0,
+                "win_rate_7d": 0.50,
+                "volatility_regime": "calm",
+                "stress_flags": []
+            },
+            "expected": {
+                "allowed_modes": [
+                    "normal",
+                    "defensive"
+                ],
+                "allowed_actions": [
+                    "keep",
+                    "reduce_size"
+                ],
+                "forbidden_modes": [
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "allow_more"
+                ]
+            }
+        },
+        {
+            "id": "A9",
+            "name": "Overexposed",
+            "description": "Превышена экспозиция (>80% equity)",
+            "state": {
+                "equity_usd": "7100",
+                "available_balance_usd": "1500",
+                "pnl_today_usd": "100",
+                "pnl_today_pct": 1.4,
+                "unrealized_pnl_usd": "80",
+                "unrealized_pnl_pct": 1.1,
+                "drawdown_today_pct": -0.2,
+                "drawdown_from_peak_pct": -1.0,
+                "open_positions_count": 5,
+                "total_exposure_pct": 85.0,
+                "avg_position_pnl_pct": 1.0,
+                "max_position_exposure_pct": 25.0,
+                "trades_today": 6,
+                "wins_today": 4,
+                "losses_today": 2,
+                "consecutive_losses": 0,
+                "consecutive_wins": 2,
+                "win_rate_7d": 0.58,
+                "volatility_regime": "normal",
+                "stress_flags": [
+                    "max_exposure_hit"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "defensive",
+                    "normal"
+                ],
+                "allowed_actions": [
+                    "reduce_size"
+                ],
+                "forbidden_modes": [
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "allow_more"
+                ]
+            }
+        },
+        {
+            "id": "A10",
+            "name": "No trades for 24h",
+            "description": "Нет сделок за 24 часа",
+            "state": {
+                "equity_usd": "7000",
+                "available_balance_usd": "6800",
+                "pnl_today_usd": "0",
+                "pnl_today_pct": 0.0,
+                "unrealized_pnl_usd": "0",
+                "unrealized_pnl_pct": 0.0,
+                "drawdown_today_pct": 0.0,
+                "drawdown_from_peak_pct": -0.5,
+                "open_positions_count": 0,
+                "total_exposure_pct": 0.0,
+                "avg_position_pnl_pct": 0.0,
+                "max_position_exposure_pct": 0.0,
+                "trades_today": 0,
+                "wins_today": 0,
+                "losses_today": 0,
+                "consecutive_losses": 0,
+                "consecutive_wins": 0,
+                "win_rate_7d": 0.55,
+                "volatility_regime": "normal",
+                "stress_flags": [
+                    "no_trades_24h"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "normal"
+                ],
+                "allowed_actions": [
+                    "keep",
+                    "allow_more"
+                ],
+                "forbidden_modes": [],
+                "forbidden_actions": [
+                    "pause_trading"
+                ]
+            }
+        },
+        {
+            "id": "A11",
+            "name": "5 consecutive wins",
+            "description": "5 выигрышей подряд - не допустить жадность",
+            "state": {
+                "equity_usd": "7350",
+                "available_balance_usd": "4500",
+                "pnl_today_usd": "350",
+                "pnl_today_pct": 5.0,
+                "unrealized_pnl_usd": "100",
+                "unrealized_pnl_pct": 1.4,
+                "drawdown_today_pct": -0.1,
+                "drawdown_from_peak_pct": -0.2,
+                "open_positions_count": 3,
+                "total_exposure_pct": 50.0,
+                "avg_position_pnl_pct": 2.0,
+                "max_position_exposure_pct": 20.0,
+                "trades_today": 6,
+                "wins_today": 6,
+                "losses_today": 0,
+                "consecutive_losses": 0,
+                "consecutive_wins": 5,
+                "win_rate_7d": 0.75,
+                "volatility_regime": "normal",
+                "stress_flags": []
+            },
+            "expected": {
+                "allowed_modes": [
+                    "normal",
+                    "aggressive"
+                ],
+                "allowed_actions": [
+                    "keep"
+                ],
+                "forbidden_modes": [],
+                "forbidden_actions": []
+            }
+        },
+        {
+            "id": "A12",
+            "name": "Margin warning",
+            "description": "Предупреждение о марже",
+            "state": {
+                "equity_usd": "6800",
+                "available_balance_usd": "500",
+                "pnl_today_usd": "-200",
+                "pnl_today_pct": -2.8,
+                "unrealized_pnl_usd": "-300",
+                "unrealized_pnl_pct": -4.4,
+                "drawdown_today_pct": -3.0,
+                "drawdown_from_peak_pct": -4.5,
+                "open_positions_count": 4,
+                "total_exposure_pct": 90.0,
+                "avg_position_pnl_pct": -3.0,
+                "max_position_exposure_pct": 30.0,
+                "trades_today": 5,
+                "wins_today": 1,
+                "losses_today": 4,
+                "consecutive_losses": 4,
+                "consecutive_wins": 0,
+                "win_rate_7d": 0.40,
+                "volatility_regime": "high",
+                "stress_flags": [
+                    "margin_warning",
+                    "consecutive_losses",
+                    "high_volatility"
+                ]
+            },
+            "expected": {
+                "allowed_modes": [
+                    "defensive"
+                ],
+                "allowed_actions": [
+                    "pause_trading"
+                ],
+                "forbidden_modes": [
+                    "normal",
+                    "aggressive"
+                ],
+                "forbidden_actions": [
+                    "keep",
+                    "allow_more",
+                    "reduce_size"
+                ]
+            }
+        }
+    ]
+}

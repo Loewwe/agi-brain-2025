@@ -1,0 +1,35 @@
+# Data and cache
+data/backtest_cache/
+data/market/
+data/models/
+*.pkl
+*.h5
+*.hdf5
+
+# Logs
+*.log
+nohup.out
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Results
+results/auto_research/*.json
+results/auto_research/*.md
+
+.env

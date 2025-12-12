@@ -1,0 +1,105 @@
+# Learning Sources Configuration
+# Белый список доменов для web-доступа
+
+# Общие правила
+global:
+  # Максимум запросов в минуту
+  rate_limit_per_minute: 30
+  
+  # Максимум запросов в час
+  rate_limit_per_hour: 500
+  
+  # Таймаут запроса (секунды)
+  request_timeout_seconds: 30
+  
+  # User-Agent
+  user_agent: "AGI-Brain/1.0 (Learning Agent)"
+
+# Категории источников
+categories:
+  # Точные науки
+  science:
+    enabled: true
+    domains:
+      - domain: "ocw.mit.edu"
+        description: "MIT OpenCourseWare"
+        subjects: ["math", "physics", "chemistry", "cs"]
+        
+      - domain: "khanacademy.org"
+        description: "Khan Academy"
+        subjects: ["math", "physics", "chemistry", "economics"]
+        
+      - domain: "phet.colorado.edu"
+        description: "PhET Simulations"
+        subjects: ["physics", "chemistry"]
+        
+      - domain: "mathworld.wolfram.com"
+        description: "Wolfram MathWorld"
+        subjects: ["math"]
+        
+      - domain: "hyperphysics.phy-astr.gsu.edu"
+        description: "HyperPhysics"
+        subjects: ["physics"]
+
+  # Программирование
+  programming:
+    enabled: true
+    domains:
+      - domain: "docs.python.org"
+        description: "Python Documentation"
+        
+      - domain: "fastapi.tiangolo.com"
+        description: "FastAPI Documentation"
+        
+      - domain: "docs.pydantic.dev"
+        description: "Pydantic Documentation"
+        
+      - domain: "numpy.org"
+        description: "NumPy Documentation"
+        
+      - domain: "pandas.pydata.org"
+        description: "Pandas Documentation"
+        
+      - domain: "docs.sqlalchemy.org"
+        description: "SQLAlchemy Documentation"
+        
+      - domain: "developer.mozilla.org"
+        description: "MDN Web Docs"
+        
+      - domain: "docs.docker.com"
+        description: "Docker Documentation"
+        
+      - domain: "kubernetes.io"
+        description: "Kubernetes Documentation"
+
+  # Криптовалюты и трейдинг
+  trading:
+    enabled: true
+    domains:
+      - domain: "bybit-exchange.github.io"
+        description: "Bybit API Documentation"
+        
+      - domain: "binance-docs.github.io"
+        description: "Binance API Documentation"
+        
+      - domain: "www.investopedia.com"
+        description: "Investopedia"
+        subjects: ["trading", "finance"]
+
+  # Общие знания
+  general:
+    enabled: true
+    domains:
+      - domain: "en.wikipedia.org"
+        description: "Wikipedia"
+        
+      - domain: "arxiv.org"
+        description: "ArXiv Papers"
+        subjects: ["cs", "math", "physics", "q-fin"]
+
+# Запрещённые домены (blacklist)
+blacklist:
+  - "*.onion"
+  - "*.tor"
+  - "pastebin.com"
+  - "4chan.org"

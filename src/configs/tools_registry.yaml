@@ -1,0 +1,233 @@
+# Tools Registry Configuration
+# Реестр инструментов AGI-Brain
+
+tools:
+  # === World ===
+  world.snapshot:
+    name: "World Snapshot"
+    description: "Получить текущий снимок состояния мира"
+    category: "world"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "trader", "internal"]
+    input_schema:
+      type: object
+      properties:
+        include_trading: { type: boolean, default: true }
+        include_metrics: { type: boolean, default: true }
+        include_owner_profile: { type: boolean, default: false }
+    output_schema:
+      type: object
+      properties:
+        snapshot: { type: object }
+        timestamp: { type: string, format: datetime }
+
+  # === Memory ===
+  memory.search:
+    name: "Memory Search"
+    description: "Поиск в семантической памяти"
+    category: "memory"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "trader", "internal"]
+    input_schema:
+      type: object
+      properties:
+        query: { type: string }
+        limit: { type: integer, default: 10 }
+        filters: { type: object }
+    output_schema:
+      type: object
+      properties:
+        results: { type: array }
+        total: { type: integer }
+
+  memory.write:
+    name: "Memory Write"
+    description: "Записать в эпизодическую память"
+    category: "memory"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["internal"]
+    input_schema:
+      type: object
+      properties:
+        content: { type: object }
+        tags: { type: array }
+    output_schema:
+      type: object
+      properties:
+        event_id: { type: string }
+
+  # === Trading ===
+  trading.fetch_history:
+    name: "Fetch Trade History"
+    description: "Получить историю сделок"
+    category: "trading"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties:
+        days: { type: integer, default: 7 }
+        symbol: { type: string }
+    output_schema:
+      type: object
+      properties:
+        trades: { type: array }
+
+  trading.fetch_positions:
+    name: "Fetch Positions"
+    description: "Получить текущие позиции"
+    category: "trading"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties: {}
+    output_schema:
+      type: object
+      properties:
+        positions: { type: array }
+
+  trading.fetch_config:
+    name: "Fetch Trading Config"
+    description: "Получить конфигурацию трейдинга"
+    category: "trading"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties: {}
+    output_schema:
+      type: object
+      properties:
+        config: { type: object }
+
+  trading.analyze_risk:
+    name: "Analyze Risk"
+    description: "Анализ рисков текущих позиций"
+    category: "trading"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties:
+        include_recommendations: { type: boolean, default: true }
+    output_schema:
+      type: object
+      properties:
+        risk_score: { type: number }
+        violations: { type: array }
+        recommendations: { type: array }
+
+  trading.set_stop_loss:
+    name: "Set Stop Loss"
+    description: "Установить Stop-Loss для позиции"
+    category: "trading"
+    risk_level: "high"
+    autonomy_level: 2
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties:
+        symbol: { type: string }
+        price: { type: number }
+    output_schema:
+      type: object
+      properties:
+        success: { type: boolean }
+        timestamp: { type: string, format: datetime }
+
+  # === Reports ===
+  reports.build_status_report:
+    name: "Build Status Report"
+    description: "Сформировать статусный отчёт"
+    category: "reports"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties:
+        period: { type: string, enum: ["daily", "weekly", "monthly"] }
+        sections: { type: array }
+    output_schema:
+      type: object
+      properties:
+        report: { type: object }
+        generated_at: { type: string, format: datetime }
+
+  # === Code (v1: только propose) ===
+  code.analyze:
+    name: "Code Analysis"
+    description: "Анализ кода"
+    category: "code"
+    risk_level: "low"
+    autonomy_level: 0
+    requires_approval: false
+    allowed_clients: ["owner", "internal"]
+    input_schema:
+      type: object
+      properties:
+        path: { type: string }
+        analysis_type: { type: string, enum: ["security", "quality", "performance"] }
+    output_schema:
+      type: object
+      properties:
+        issues: { type: array }
+        recommendations: { type: array }
+
+  code.propose_patch:
+    name: "Propose Code Patch"
+    description: "Предложить патч для кода (без применения)"
+    category: "code"
+    risk_level: "medium"
+    autonomy_level: 1
+    requires_approval: false
+    allowed_clients: ["owner"]
+    input_schema:
+      type: object
+      properties:
+        path: { type: string }
+        changes: { type: object }
+        rationale: { type: string }
+    output_schema:
+      type: object
+      properties:
+        patch: { type: string }
+        diff: { type: string }
+
+# Категории риска
+risk_levels:
+  low:
+    description: "Только чтение, нет побочных эффектов"
+    max_autonomy: 0
+    
+  medium:
+    description: "Генерация контента, предложения"
+    max_autonomy: 1
+    
+  high:
+    description: "Изменения данных/конфигов"
+    max_autonomy: 2
+    requires_audit: true
+    
+  critical:
+    description: "Финансовые операции, изменения прав"
+    max_autonomy: 3
+    requires_audit: true
+    requires_approval: true

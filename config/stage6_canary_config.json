@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "max_canary_strategies": 1,
+  "max_canary_slots": 1,
+  "max_canary_risk_fraction": 0.05,
+  "max_canary_dd_pct": -10.0,
+  "budget_usd": 200,
+  "strategies": [
+    {
+      "id": "best_864",
+      "name": "Factory Winner #864",
+      "ema_fast": 15,
+      "ema_slow": 60,
+      "rsi_period": 14,
+      "rsi_overbought": 75,
+      "rsi_oversold": 25,
+      "bb_period": 25,
+      "bb_std": 2.0,
+      "expected_alpha": 2.61,
+      "max_dd": -5.68,
+      "winrate": 80.8,
+      "source": "strategy_factory_trial_864",
+      "activated_at": "2025-12-09T14:33:00Z"
+    }
+  ]
+}

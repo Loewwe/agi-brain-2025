@@ -1,0 +1,548 @@
+# Alpha Scan v1 — Reduced Experiment Grid
+# Based on available data: BTCUSDT (5m, 1h), ETHUSDT (5m only)
+
+# PHILOSOPHY:
+# - Focus on what we have data for
+# - BTC: test both 5m and 1h
+# - ETH: 5m only (no 1h data)
+# - SOL: excluded (no data)
+# - All with realistic costs (0.3%)
+
+# Total experiments: 27 (15 BTC + 12 ETH)
+
+experiments:
+  # ========== BTC/USDT (15 experiments) ==========
+  
+  # 5m timeframe (9 experiments) — despite Stage 8b results, include for completeness
+  - id: "scan_001_btc_5m_momentum_short_ext"
+    symbol: "BTC/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 8
+      min_move_pct: 0.005
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_002_btc_5m_momentum_med_ext"
+    symbol: "BTC/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 16
+      min_move_pct: 0.008
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_003_btc_5m_reversal_short_ext"
+    symbol: "BTC/USDT"
+    timeframe: "5m"
+    target:
+      type: "reversal"
+      horizon_bars: 12
+      min_move_pct: 0.008
+      extremum_window: 5
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_004_btc_5m_reversal_med_ext"
+    symbol: "BTC/USDT"
+    timeframe: "5m"
+    target:
+      type: "reversal"
+      horizon_bars: 24
+      min_move_pct: 0.012
+      extremum_window: 8
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_005_btc_5m_volexp_short_ext"
+    symbol: "BTC/USDT"
+    timeframe: "5m"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 12
+      vol_window: 48
+      vol_factor: 1.5
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_006_btc_5m_volexp_med_ext"
+    symbol: "BTC/USDT"
+    timeframe: "5m"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 24
+      vol_window: 72
+      vol_factor: 1.6
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  # 1h timeframe (9 experiments) - KEY: fewer trades expected
+  - id: "scan_007_btc_1h_momentum_short_base"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "momentum"
+      horizon_bars: 3
+      min_move_pct: 0.010
+    feature_set: "base"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_008_btc_1h_momentum_short_ext"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "momentum"
+      horizon_bars: 3
+      min_move_pct: 0.010
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_009_btc_1h_momentum_med_ext"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "momentum"
+      horizon_bars: 6
+      min_move_pct: 0.015
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_010_btc_1h_reversal_short_base"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "reversal"
+      horizon_bars: 6
+      min_move_pct: 0.015
+      extremum_window: 3
+    feature_set: "base"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_011_btc_1h_reversal_short_ext"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "reversal"
+      horizon_bars: 6
+      min_move_pct: 0.015
+      extremum_window: 3
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_012_btc_1h_reversal_med_ext"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "reversal"
+      horizon_bars: 10
+      min_move_pct: 0.020
+      extremum_window: 4
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_013_btc_1h_volexp_short_base"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 6
+      vol_window: 24
+      vol_factor: 1.5
+    feature_set: "base"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_014_btc_1h_volexp_short_ext"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 6
+      vol_window: 24
+      vol_factor: 1.5
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_015_btc_1h_volexp_med_ext"
+    symbol: "BTC/USDT"
+    timeframe: "1h"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 10
+      vol_window: 36
+      vol_factor: 1.6
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  # ========== ETH/USDT (12 experiments, 5m only) ==========
+  
+  - id: "scan_016_eth_5m_momentum_short_base"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 8
+      min_move_pct: 0.005
+    feature_set: "base"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_017_eth_5m_momentum_short_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 8
+      min_move_pct: 0.005
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_018_eth_5m_momentum_med_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 16
+      min_move_pct: 0.008
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_019_eth_5m_momentum_long_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 24
+      min_move_pct: 0.010
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_020_eth_5m_reversal_short_base"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "reversal"
+      horizon_bars: 12
+      min_move_pct: 0.008
+      extremum_window: 5
+    feature_set: "base"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_021_eth_5m_reversal_short_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "reversal"
+      horizon_bars: 12
+      min_move_pct: 0.008
+      extremum_window: 5
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_022_eth_5m_reversal_med_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "reversal"
+      horizon_bars: 24
+      min_move_pct: 0.012
+      extremum_window: 8
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_023_eth_5m_volexp_short_base"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 12
+      vol_window: 48
+      vol_factor: 1.5
+    feature_set: "base"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_024_eth_5m_volexp_short_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 12
+      vol_window: 48
+      vol_factor: 1.5
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_025_eth_5m_volexp_med_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 24
+      vol_window: 72
+      vol_factor: 1.6
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_026_eth_5m_volexp_long_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "vol_expansion"
+      horizon_bars: 36
+      vol_window: 96
+      vol_factor: 1.7
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5
+
+  - id: "scan_027_eth_5m_momentum_verylong_ext"
+    symbol: "ETH/USDT"
+    timeframe: "5m"
+    target:
+      type: "momentum"
+      horizon_bars: 48
+      min_move_pct: 0.015
+    feature_set: "extended"
+    model_type: "lightgbm"
+    train_period:
+      start: "2024-01-01"
+      end: "2024-03-31"
+    test_period:
+      start: "2024-04-01"
+      end: "2024-04-30"
+    random_state: 42
+    commission_bps: 10
+    slippage_bps: 5

@@ -1,0 +1,73 @@
+# Autonomy Levels Configuration
+# Уровни автономии AGI-Brain
+
+levels:
+  L0:
+    name: "Read-Only"
+    description: "Анализ, отчёты, рекомендации"
+    allowed_actions:
+      - "read"
+      - "analyze"
+      - "report"
+      - "recommend"
+    requires_approval: false
+    enabled: true
+    
+  L1:
+    name: "Propose"
+    description: "Генерация патчей и планов действий без применения"
+    allowed_actions:
+      - "read"
+      - "analyze"
+      - "report"
+      - "recommend"
+      - "generate_patch"
+      - "generate_plan"
+      - "draft_pr"
+    requires_approval: false
+    enabled: true
+    
+  L2:
+    name: "Apply with Approval"
+    description: "Применение изменений после явного подтверждения"
+    allowed_actions:
+      - "read"
+      - "analyze"
+      - "report"
+      - "recommend"
+      - "generate_patch"
+      - "generate_plan"
+      - "apply_patch"
+      - "execute_plan"
+    requires_approval: true
+    enabled: false  # Отключено в v1
+    
+  L3:
+    name: "Autonomous"
+    description: "Полностью автономное выполнение (только для ограниченных задач)"
+    allowed_actions:
+      - "*"
+    requires_approval: false
+    enabled: false  # Отключено в v1
+    restricted_to:
+      - "non_critical_optimizations"
+      - "routine_maintenance"
+
+# Глобальные настройки
+global:
+  # Максимальный разрешённый уровень в v1
+  max_level: "L1"
+  
+  # Действия, всегда требующие подтверждения
+  always_require_approval:
+    - "modify_risk_limits"
+    - "modify_autonomy_levels"
+    - "execute_trade"
+    - "deploy_code"
+    - "modify_acl"
+  
+  # Таймаут ожидания подтверждения (часы)
+  approval_timeout_hours: 24
+  
+  # При таймауте
+  on_timeout: "reject"  # reject, escalate, auto_approve_safe

@@ -1,0 +1,9 @@
+# Event Strategies (A_EVENT) Configuration
+# Criteria for rare, high-impact strategies (e.g., H048, H074).
+
+min_pf: 1.8
+min_win_rate: 0.60
+max_drawdown: 0.35
+min_total_trades: 30
+
+# Note: avg_daily_return is less critical here, total_return vs Buy&Hold matters more.

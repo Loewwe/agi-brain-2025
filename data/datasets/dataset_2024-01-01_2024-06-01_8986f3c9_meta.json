@@ -1,0 +1,20 @@
+{
+  "config": {
+    "symbols": [
+      "BTC/USDT",
+      "ETH/USDT"
+    ],
+    "date_from": "2024-01-01",
+    "date_to": "2024-06-01",
+    "timeframe": "5m",
+    "features_schema_version": "v1",
+    "mode": "backtest"
+  },
+  "created_at": "2025-12-07T21:10:28.821765",
+  "row_count": 88128,
+  "symbols_included": [
+    "BTC/USDT",
+    "ETH/USDT"
+  ],
+  "checksum": "8986f3c9ab6908f6a7cfc5de482ee967"
+}
