@@ -128,13 +128,20 @@ class AutoResearchPipeline:
         with open(output_dir / f"hybrid_portfolio_{cycle_id}.json", "w") as f:
             json.dump(portfolio, f, indent=4)
             
-        # Save Report
+        # Save Report (resilient to empty portfolio)
+        meta = portfolio.get("meta", {}) if portfolio else {}
+        total_count = meta.get("total_count", 0)
+        core_allocation = meta.get("core_allocation", 0)
+        event_allocation = meta.get("event_allocation", 0)
+        
         with open(output_dir / f"morning_report_{cycle_id}.md", "w") as f:
             f.write(f"# Morning Report {cycle_id}\n\n")
             f.write("## Portfolio Summary\n")
-            f.write(f"- Total Strategies: {portfolio['meta']['total_count']}\n")
-            f.write(f"- Core Allocation: {portfolio['meta']['core_allocation']:.0%}\n")
-            f.write(f"- Event Allocation: {portfolio['meta']['event_allocation']:.0%}\n")
+            f.write(f"- Total Strategies: {total_count}\n")
+            f.write(f"- Core Allocation: {core_allocation:.0%}\n")
+            f.write(f"- Event Allocation: {event_allocation:.0%}\n")
+            if total_count == 0:
+                f.write("\n⚠️ No valid strategies found for this cycle.\n")
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
