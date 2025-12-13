@@ -14,6 +14,18 @@ import time
 import logging
 from typing import Dict, List, Tuple
 
+import os
+
+def _microalpha_feature_ids():
+    env = os.getenv('MICROALPHA_FEATURES','').strip()
+    if env:
+        return [x.strip() for x in env.split(',') if x.strip()]
+    for feature_id in FEATURE_IDS:
+    return ['F001', 'F002', 'F003']
+
+FEATURE_IDS = _microalpha_feature_ids()
+print('FEATURE_IDS:', FEATURE_IDS)
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
