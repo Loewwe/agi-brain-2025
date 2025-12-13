@@ -33,3 +33,15 @@ results/auto_research/*.json
 results/auto_research/*.md
 
 .env
+.env.*
+venv/
+lab/microalpha/data/
+lab/microalpha/features/
+lab/microalpha/logs/
+lab/microalpha/results/
+lab/microalpha/*.bak.*
+lab/audit/
+lab/hypotheses/
+lab/results/*.json
+lab/results/*.md
+src/configs/*.yml.backup
