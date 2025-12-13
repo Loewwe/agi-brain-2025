@@ -27,8 +27,8 @@ logger = logging.getLogger(__name__)
 
 # Config
 CONFIG = {
-    'symbols': ['BTCUSDT', 'ETHUSDT', 'SOLUSDT'],
-    'timeframes': ['15m', '1h'],
+    'symbols': ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT', 'DOGEUSDT', 'AVAXUSDT', 'LINKUSDT', 'MATICUSDT', 'DOTUSDT', 'LTCUSDT', 'BCHUSDT', 'TRXUSDT', 'ATOMUSDT', 'NEARUSDT', 'APTUSDT', 'SUIUSDT', 'ARBUSDT', 'OPUSDT', 'FILUSDT', 'INJUSDT', 'UNIUSDT', 'ETCUSDT', 'ICPUSDT'],
+    'timeframes': ['15m', '1h', '4h', '8h'],
     'is_days': 60,
     'oos_days': 30,
     'min_new_candidates': 1,
