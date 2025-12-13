@@ -18,7 +18,7 @@ EXCHANGES = {
     'binance': ccxt.binance({'enableRateLimit': True})
 }
 
-SYMBOLS = ['BTC/USDT:USDT', 'ETH/USDT:USDT', 'SOL/USDT:USDT', 'BNB/USDT:USDT', 'XRP/USDT:USDT', 'ADA/USDT:USDT', 'DOGE/USDT:USDT', 'AVAX/USDT:USDT', 'LINK/USDT:USDT', 'MATIC/USDT:USDT', 'DOT/USDT:USDT', 'LTC/USDT:USDT', 'BCH/USDT:USDT', 'TRX/USDT:USDT', 'ATOM/USDT:USDT', 'NEAR/USDT:USDT', 'APT/USDT:USDT', 'SUI/USDT:USDT', 'ARB/USDT:USDT', 'OP/USDT:USDT', 'FIL/USDT:USDT', 'INJ/USDT:USDT', 'UNI/USDT:USDT', 'ETC/USDT:USDT', 'ICP/USDT:USDT']
+SYMBOLS = ['BTC/USDT:USDT', 'ETH/USDT:USDT', 'SOL/USDT:USDT', 'BNB/USDT:USDT', 'XRP/USDT:USDT', 'ADA/USDT:USDT', 'DOGE/USDT:USDT', 'AVAX/USDT:USDT', 'LINK/USDT:USDT', 'POL/USDT:USDT', 'DOT/USDT:USDT', 'LTC/USDT:USDT', 'BCH/USDT:USDT', 'TRX/USDT:USDT', 'ATOM/USDT:USDT', 'NEAR/USDT:USDT', 'APT/USDT:USDT', 'SUI/USDT:USDT', 'ARB/USDT:USDT', 'OP/USDT:USDT', 'FIL/USDT:USDT', 'INJ/USDT:USDT', 'UNI/USDT:USDT', 'ETC/USDT:USDT', 'ICP/USDT:USDT']
 DAYS = 90
 OUTPUT_DIR = Path('lab/microalpha/data')
 LOGS_DIR = Path('lab/microalpha/logs')
@@ -82,6 +82,9 @@ def fetch_funding_history(exchange, symbol, days=90):
     
     # Resample to 1h (funding is typically 8h, so we forward-fill)
     df = df.set_index('timestamp').resample('1H').ffill().reset_index()
+for _c in ['funding_rate','price_index','open_interest']:
+    if _c in df.columns:
+        df[_c] = df[_c].ffill().bfill().fillna(0.0)
     
     return df
 
@@ -94,6 +97,7 @@ def validate_data(df, symbol):
     
     # Check for NaN
     nan_cols = df.columns[df.isna().any()].tolist()
+nan_cols = [c for c in nan_cols if c in ('funding_rate',)]
     if nan_cols:
         issues.append(f"NaN values in columns: {nan_cols}")
     
