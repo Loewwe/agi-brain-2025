@@ -81,11 +81,13 @@ def fetch_funding_history(exchange, symbol, days=90):
         df['open_interest'] = 0
     
     # Resample to 1h (funding is typically 8h, so we forward-fill)
-    df = df.set_index('timestamp').resample('1H').ffill().reset_index()
-for _c in ['funding_rate','price_index','open_interest']:
-    if _c in df.columns:
-        df[_c] = df[_c].ffill().bfill().fillna(0.0)
+    df = df.set_index('timestamp').resample('1h').ffill().reset_index()
     
+    # fill leading NaNs after resample
+    for _c in ('funding_rate','price_index','open_interest'):
+        if _c in df.columns:
+            df[_c] = df[_c].ffill().bfill().fillna(0.0)
+
     return df
 
 def validate_data(df, symbol):
@@ -97,7 +99,6 @@ def validate_data(df, symbol):
     
     # Check for NaN
     nan_cols = df.columns[df.isna().any()].tolist()
-nan_cols = [c for c in nan_cols if c in ('funding_rate',)]
     if nan_cols:
         issues.append(f"NaN values in columns: {nan_cols}")
     
