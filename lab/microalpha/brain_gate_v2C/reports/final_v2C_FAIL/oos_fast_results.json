@@ -1,0 +1,254 @@
+[
+  {
+    "trades": 1811460,
+    "e_net_signal": -0.0014464825192594003,
+    "e_gross": -0.0005687788327303035,
+    "ci_low": -0.0014601426837511046,
+    "ci_high": -0.0014335566242837446,
+    "perm_mean": -0.0014464825192594016,
+    "p_value": 0.0,
+    "profitable_symbols": 0,
+    "total_symbols": 14,
+    "symbol_stats": [
+      {
+        "symbol": "BNBUSDT",
+        "e_net": -0.0010578959834313456,
+        "count": 129390
+      },
+      {
+        "symbol": "LTCUSDT",
+        "e_net": -0.0011115753834815543,
+        "count": 129390
+      },
+      {
+        "symbol": "BTCUSDT",
+        "e_net": -0.0011809626387948198,
+        "count": 129390
+      },
+      {
+        "symbol": "ETHUSDT",
+        "e_net": -0.0012856207133991396,
+        "count": 129390
+      },
+      {
+        "symbol": "SOLUSDT",
+        "e_net": -0.0013994235158582332,
+        "count": 129390
+      },
+      {
+        "symbol": "LINKUSDT",
+        "e_net": -0.0014217292284701571,
+        "count": 129390
+      },
+      {
+        "symbol": "XRPUSDT",
+        "e_net": -0.001493084106158983,
+        "count": 129390
+      },
+      {
+        "symbol": "DOGEUSDT",
+        "e_net": -0.0015032937596117623,
+        "count": 129390
+      },
+      {
+        "symbol": "APTUSDT",
+        "e_net": -0.001529932885099255,
+        "count": 129390
+      },
+      {
+        "symbol": "ATOMUSDT",
+        "e_net": -0.0015681222391701849,
+        "count": 129390
+      },
+      {
+        "symbol": "NEARUSDT",
+        "e_net": -0.0015849414984055634,
+        "count": 129390
+      },
+      {
+        "symbol": "DOTUSDT",
+        "e_net": -0.0016418576081057294,
+        "count": 129390
+      },
+      {
+        "symbol": "AVAXUSDT",
+        "e_net": -0.0017110630653751884,
+        "count": 129390
+      },
+      {
+        "symbol": "ADAUSDT",
+        "e_net": -0.001761252644269688,
+        "count": 129390
+      }
+    ],
+    "config": "sym_2.0_H180_LONG"
+  },
+  {
+    "trades": 1811460,
+    "e_net_signal": -0.0013365460088115946,
+    "e_gross": -0.0004891141251376521,
+    "ci_low": -0.0013481770761026289,
+    "ci_high": -0.0013249375641897175,
+    "perm_mean": -0.0013365460088115948,
+    "p_value": 0.28,
+    "profitable_symbols": 0,
+    "total_symbols": 14,
+    "symbol_stats": [
+      {
+        "symbol": "BNBUSDT",
+        "e_net": -0.000999622813123215,
+        "count": 129390
+      },
+      {
+        "symbol": "LTCUSDT",
+        "e_net": -0.0010194100706758498,
+        "count": 129390
+      },
+      {
+        "symbol": "BTCUSDT",
+        "e_net": -0.0010817637566093905,
+        "count": 129390
+      },
+      {
+        "symbol": "ETHUSDT",
+        "e_net": -0.0012531912045281061,
+        "count": 129390
+      },
+      {
+        "symbol": "LINKUSDT",
+        "e_net": -0.0012673999125379692,
+        "count": 129390
+      },
+      {
+        "symbol": "XRPUSDT",
+        "e_net": -0.0013428221712804115,
+        "count": 129390
+      },
+      {
+        "symbol": "NEARUSDT",
+        "e_net": -0.0013492707501278202,
+        "count": 129390
+      },
+      {
+        "symbol": "APTUSDT",
+        "e_net": -0.0013617877875085965,
+        "count": 129390
+      },
+      {
+        "symbol": "SOLUSDT",
+        "e_net": -0.0013776013012863832,
+        "count": 129390
+      },
+      {
+        "symbol": "DOGEUSDT",
+        "e_net": -0.0014348013476165327,
+        "count": 129390
+      },
+      {
+        "symbol": "DOTUSDT",
+        "e_net": -0.001441865357949767,
+        "count": 129390
+      },
+      {
+        "symbol": "ATOMUSDT",
+        "e_net": -0.001513144629839701,
+        "count": 129390
+      },
+      {
+        "symbol": "AVAXUSDT",
+        "e_net": -0.0015634758760608297,
+        "count": 129390
+      },
+      {
+        "symbol": "ADAUSDT",
+        "e_net": -0.0017054871442177505,
+        "count": 129390
+      }
+    ],
+    "config": "sym_1.5_H180_LONG"
+  },
+  {
+    "trades": 1811460,
+    "e_net_signal": -0.001223264489739303,
+    "e_gross": -0.0004397992186320199,
+    "ci_low": -0.0012336433996112904,
+    "ci_high": -0.0012129784822449982,
+    "perm_mean": -0.0012232644897393033,
+    "p_value": 0.609,
+    "profitable_symbols": 0,
+    "total_symbols": 14,
+    "symbol_stats": [
+      {
+        "symbol": "LTCUSDT",
+        "e_net": -0.0009019658847533173,
+        "count": 129390
+      },
+      {
+        "symbol": "BNBUSDT",
+        "e_net": -0.0009735697463048056,
+        "count": 129390
+      },
+      {
+        "symbol": "LINKUSDT",
+        "e_net": -0.001057559980164319,
+        "count": 129390
+      },
+      {
+        "symbol": "ETHUSDT",
+        "e_net": -0.0010582329812657307,
+        "count": 129390
+      },
+      {
+        "symbol": "BTCUSDT",
+        "e_net": -0.0010816050240784283,
+        "count": 129390
+      },
+      {
+        "symbol": "DOTUSDT",
+        "e_net": -0.0012122616880275187,
+        "count": 129390
+      },
+      {
+        "symbol": "NEARUSDT",
+        "e_net": -0.0012390052956224489,
+        "count": 129390
+      },
+      {
+        "symbol": "APTUSDT",
+        "e_net": -0.0012711595068109964,
+        "count": 129390
+      },
+      {
+        "symbol": "SOLUSDT",
+        "e_net": -0.0013055659717181988,
+        "count": 129390
+      },
+      {
+        "symbol": "XRPUSDT",
+        "e_net": -0.0013240421527459332,
+        "count": 129390
+      },
+      {
+        "symbol": "DOGEUSDT",
+        "e_net": -0.0013556044989275213,
+        "count": 129390
+      },
+      {
+        "symbol": "AVAXUSDT",
+        "e_net": -0.0014171930714133563,
+        "count": 129390
+      },
+      {
+        "symbol": "ATOMUSDT",
+        "e_net": -0.0014271153430643663,
+        "count": 129390
+      },
+      {
+        "symbol": "ADAUSDT",
+        "e_net": -0.001500821711453298,
+        "count": 129390
+      }
+    ],
+    "config": "sym_1.0_H180_LONG"
+  }
+]

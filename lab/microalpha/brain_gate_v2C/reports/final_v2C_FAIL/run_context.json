@@ -1,0 +1,67 @@
+{
+    "project": "Brain Gate v2C",
+    "run_date": "2025-12-20T04:57:00Z",
+    "verdict": "FAIL",
+    "oos_period_days": 90,
+    "symbols_count": 14,
+    "symbols": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "BNBUSDT",
+        "SOLUSDT",
+        "XRPUSDT",
+        "DOGEUSDT",
+        "ADAUSDT",
+        "AVAXUSDT",
+        "LINKUSDT",
+        "DOTUSDT",
+        "MATICUSDT",
+        "LTCUSDT",
+        "ATOMUSDT",
+        "NEARUSDT"
+    ],
+    "configs_tested": [
+        "sym_2.0_H180_LONG",
+        "sym_1.5_H180_LONG",
+        "sym_1.0_H180_LONG"
+    ],
+    "execution_params": {
+        "mode": "MAKER_TAKER_FALLBACK",
+        "ttl_min": 30,
+        "fill_model": "TRADE_CONFIRM",
+        "maker_fee_rt": 0.00044,
+        "taker_fee_rt": 0.0012,
+        "slippage_taker": 0.0002
+    },
+    "validation_method": {
+        "type": "permutation_test",
+        "n_permutations": 1000,
+        "bootstrap_iterations": 1000,
+        "ci_level": 0.95
+    },
+    "results_summary": {
+        "all_configs_negative": true,
+        "profitable_symbols": 0,
+        "total_symbols": 14,
+        "trades_per_config": 1811460
+    },
+    "comparison_to_p1": {
+        "p1_train_period": "7 days",
+        "p1_best_e_net": 0.0018,
+        "oos_best_e_net": -0.001223,
+        "delta": -0.003003,
+        "overfit_confirmed": true
+    },
+    "git_info": {
+        "repository": "alien-agi",
+        "branch": "main",
+        "note": "Tag will be created: brain_gate_v2C_final_fail_20251220"
+    },
+    "files": [
+        "oos_fast_results.json",
+        "oos_fast_output.log",
+        "run_context.json",
+        "sha256_manifest.txt",
+        "FINAL_VERDICT.md"
+    ]
+}
